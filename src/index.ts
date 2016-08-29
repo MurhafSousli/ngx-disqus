@@ -1,6 +1,6 @@
+import {NgModule} from '@angular/core';
 import {Disqus} from './disqus/disqus.component';
 
-import {NgModule} from '@angular/core';
 
 @NgModule({
     declarations: [Disqus],
