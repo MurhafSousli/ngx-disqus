@@ -1,8 +1,7 @@
 # Angular 2 Disqus [![npm](https://img.shields.io/npm/v/ng2-awesome-disqus.svg?maxAge=2592000?style=plastic)](https://github.com/MurhafSousli/ng2-awesome-disqus) [![Build Status](https://travis-ci.org/MurhafSousli/ng2-disqus.svg?branch=master)](https://travis-ci.org/MurhafSousli/ng2-disqus) [![npm](https://img.shields.io/npm/dt/ng2-awesome-disqus.svg?maxAge=2592000)](https://www.npmjs.com/package/ng2-awesome-disqus)
 
-<div style="width: 100%">
-    <img style="margin: auto" src="/assets/cover.PNG?raw=true"/>
-</div>
+
+![Angular 2 Share Buttons cover](/assets/cover.PNG?raw=true "Optional Title")
 
 Angular 2 Disqus comment system
 
