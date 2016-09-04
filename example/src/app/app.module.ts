@@ -18,7 +18,7 @@ import {LightTheme} from './light';
 import {DarkTheme} from './dark';
 import {NoContent} from './no-content';
 
-import {Disqus} from './disqus';
+import {Disqus} from 'ng2-awesome-disqus';
 import {Doc} from './doc';
 import {Header} from "./header";
 import {Preview} from "./preview";

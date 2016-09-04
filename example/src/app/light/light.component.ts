@@ -14,6 +14,9 @@ export class LightTheme {
 
     appState.set('themeSwitcher', false);
     appState.set('themeName', 'Light Theme');
-    appState.set('themeCover', "../../assets/img/light.png");
+    appState.set('themeCover', prefixRepo("../../assets/img/light.png"));
   }
+}
+var prefixRepo = (path) => {
+  return path;//'ng2-disqus' + path;
 }

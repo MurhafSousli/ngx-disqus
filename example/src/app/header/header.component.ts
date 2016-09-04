@@ -11,5 +11,5 @@ export class Header {
 }
 
 var prefixRepo = (path) => {
-  return path;
+  return path;//'ng2-disqus' + path;
 }

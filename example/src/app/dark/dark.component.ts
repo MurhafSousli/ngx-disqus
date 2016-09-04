@@ -14,6 +14,10 @@ export class DarkTheme {
 
     appState.set('themeSwitcher', true);
     appState.set('themeName', 'Dark Theme');
-    appState.set('themeCover', "../../assets/img/dark.png");
+    appState.set('themeCover', prefixRepo("../../assets/img/dark.png"));
   }
+
+}
+var prefixRepo = (path) => {
+  return path;//'ng2-disqus' + path;
 }
