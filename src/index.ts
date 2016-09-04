@@ -1,5 +1,3 @@
-import 'rxjs/operators/add/map';
-
 import {NgModule} from '@angular/core';
 import {Disqus} from './disqus/disqus.component';
 
