@@ -40,6 +40,19 @@ module.exports = {
   meta: [
     { name: 'msapplication-TileColor', content: '#00bcd4' },
     { name: 'msapplication-TileImage', content: '/assets/icon/ms-icon-144x144.png', '=content': true },
-    { name: 'theme-color', content: '#00bcd4' }
+    { name: 'theme-color', content: '#00bcd4' },
+
+    /** Open Graph default properties */
+    { name: 'title', content: 'Angular2 Share Disqus' },
+    { name: 'description', content: 'Add Disqus comment system to your angular 2 app' },
+
+    { property: 'og:site_name', content: 'Angular2 Disqus'},
+    { property: 'og:title', content: 'Angular2 Disqus' },
+    { property: 'og:description', content: 'Add Disqus comment system to your angular 2 app' },
+    { property: 'og:url', content:  'https://murhafsousli.github.io/ng2-disqus' },
+    { property: 'og:image', content: 'https://murhafsousli.github.io/ng2-disqus/assets/img/cover.png' },
+    { property: 'og:type',content: 'website'},
+    { property: 'twitter:site', content: '@MurhafSousli'},
+    { property: 'twitter:creator', content: '@MurhafSousli'}
   ]
 };
