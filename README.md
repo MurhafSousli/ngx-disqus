@@ -3,7 +3,7 @@
 
 Angular 2 Disqus comment system, coming soon on npm
 
-![Angular 2 Share Buttons cover](/assets/cover.png?raw=true "Optional Title")
+![Angular 2 Share Buttons cover](/assets/cover.PNG?raw=true "Optional Title")
 
 ## Installation
 
