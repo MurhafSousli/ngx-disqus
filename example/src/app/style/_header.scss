@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.cover {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+  @media screen and (min-width: 460px) {
+    flex-direction: row;
+  }
+
+  position: relative;
+}
+
+.cover-angular {
+  max-width: 150px;
+  padding: 20px;
+}
+
+.cover-disqus {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+ // transform: scale(1.4);
+}
+
+.cover-plus{
+  display: flex;
+  align-items: center;
+  font-size: 2em;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.5em;
+  h1{
+    margin: 3% 0;
+  }
+  .red {
+    color: #E03237;
+    text-shadow: 0 4px 5px rgba(#333, 0.3);
+  }
+}

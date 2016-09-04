@@ -1,0 +1,21 @@
+<div class="preview">
+  <h2>Preview</h2>
+  <div class="preview-header">
+    <div class="preview-img" [style.backgroundImage]="'url(' + appState.get('themeCover')+ ')'">
+    </div>
+    <p>{{appState.get('themeName')}}</p>
+  </div>
+  <nav>
+    <a [routerLink]="['./']" routerLinkActive="active">
+      <p>Light theme</p>
+    </a>
+    <a [routerLink]="['./dark']" routerLinkActive="active">
+      <p>Dark theme</p>
+    </a>
+  </nav>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+</div>
