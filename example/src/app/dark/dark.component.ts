@@ -19,5 +19,5 @@ export class DarkTheme {
 
 }
 var prefixRepo = (path) => {
-  return path;//'ng2-disqus' + path;
+  return 'ng2-disqus' + path;
 }

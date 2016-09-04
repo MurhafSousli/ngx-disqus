@@ -10,6 +10,11 @@
   "bugs": {
     "url": "https://github.com/MurhafSousli/ng2-disqus/issues"
   },
+  "keywords": [
+    "disqus",
+    "angular2",
+    "angular"
+  ],
   "author": "Murhaf Sousli <murhafsousi@gmail.com>",
   "license": "MIT",
   "main": "./dist",

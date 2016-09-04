@@ -30,7 +30,7 @@ It's highly recommended to read the official Disqus docs [JavaScript configurati
   ></disqus>
 ```
 
-**ng2-awesome-disqus** module uses `ChangeDetectionStrategy.OnPush`, so the inputs won't detect changes if bound to variables (why would you need change detection here anyway!).
+**ng2-awesome-disqus** uses `ChangeDetectionStrategy.OnPush`, so the inputs won't detect changes if bound to variables (why would you need change detection here anyway!).
 
 The input `[removeOnDestroy]` explains it self, you should ONLY set it to true if your app has dynamic theme, this will load *Disqus* script every time the component initializes and it will let *Disqus* to decide the appropriate colors for you, just like in this [Demo](https://murhafsousli.github.io/ng2-awesome-disqus/)
 

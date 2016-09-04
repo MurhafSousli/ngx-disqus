@@ -9,7 +9,7 @@
   <section>
     <h2>Installation</h2>
     <p>Install it with npm</p>
-    <pre><code class="language-markup">$ npm install ng2-disqus --save</code></pre>
+    <pre><code class="language-markup">$ npm install ng2-awesome-disqus --save</code></pre>
   </section>
 
   <section>
@@ -26,14 +26,14 @@
 
     <pre><code class="language-html">{{advancedUsage}}</code></pre>
 
-    <p><i>ng2-disqus</i> module uses <code class="language-markup">ChangeDetectionStrategy.OnPush</code>
+    <p><i>ng2-awesome-disqus</i> uses <code class="language-markup">ChangeDetectionStrategy.OnPush</code>
       ,so the inputs won't detect changes if bound to variables (why would you need change detection here anyway!).
     </p>
 
     <p>
       The input <code class="language-markup">[removeOnDestroy]</code> explains it self, you should ONLY set it to <i>true</i>
-      if your app has dynamic theme, this will load <i>Disqus</i> script every time the component initializes and it
-      will let <i>Disqus</i> to decide the appropriate colors for you, just like this demo
+      if your app has dynamic theme, this will load <i>Disqus</i> script every time the component initializes, this will
+      let <i>Disqus</i> to decide the appropriate colors for you, just like this demo
     </p>
   </section>
 

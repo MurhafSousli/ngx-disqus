@@ -19,7 +19,7 @@ const HtmlElementsPlugin = require('./html-elements-plugin');
  */
 const METADATA = {
   title: 'Angular2 Disqus',
-  baseUrl: '/',
+  baseUrl: '/ng2-disqus/',
   isDevServer: helpers.isWebpackDevServer()
 };
 
