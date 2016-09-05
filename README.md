@@ -3,7 +3,7 @@
 
 ![Angular 2 Share Buttons cover](/assets/cover.PNG?raw=true "Optional Title")
 
-Angular 2 Disqus comment system
+Angular 2 Disqus comment system | [live demo](https://murhafsousli.github.io/ng2-awesome-disqus/)
 
 ## Installation
 
@@ -23,16 +23,13 @@ It's highly recommended to read the official Disqus docs [JavaScript configurati
 
 ```
 <disqus [shortname]="disqusShortname" [identifier]="pageIdentifier" 
-    [url]="customUrl" [categoryId]="catId"
-    [lang]="'en'"
+    [url]="customUrl" [categoryId]="catId" [lang]="'en'"
       
     [removeOnDestroy]="true"
   ></disqus>
 ```
 
-**ng2-awesome-disqus** uses `ChangeDetectionStrategy.OnPush`, so the inputs won't detect changes if bound to variables (why would you need change detection here anyway!).
-
-The input `[removeOnDestroy]` explains it self, you should ONLY set it to true if your app has dynamic theme, this will load *Disqus* script every time the component initializes and it will let *Disqus* to decide the appropriate colors for you, just like in this [Demo](https://murhafsousli.github.io/ng2-awesome-disqus/)
+by default the component will reset Disqus configuration when it initializes again, to remove Disqus script completely on component destroy, set `[removeOnDestroy]="true"`
 
 ## Issues
 

@@ -12,8 +12,7 @@ export class Doc implements AfterContentInit {
 
   advancedUsage = `
   <disqus [shortname]="disqusShortname" [identifier]="pageIdentifier" 
-    [url]="customUrl" [categoryId]="catId"
-    [lang]="'en'"
+    [url]="customUrl" [categoryId]="catId" [lang]="'en'"
       
     [removeOnDestroy]="true"
   ></disqus>
