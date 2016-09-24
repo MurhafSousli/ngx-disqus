@@ -16,6 +16,16 @@ Install it with npm
 Add `DisqusModule` to your **NgModule** `imports` array.
 
 ```
+import {DisqusModule} from "ng2-awesome-disqus";
+@NgModule({
+  imports[
+    DisqusModule
+  ]
+})
+```
+In your template
+
+```
 <disqus [shortname]="disqusShortname" [identifier]="pageIdentifier" ></disqus>
 ```
 
