@@ -1950,7 +1950,7 @@ declare module "tls" {
         localPort: string;
         /**
          * The string representation of the remote IP address.
-         * For example, '74.125.127.100' or '2001:4860:a005::68'.
+         * For demo, '74.125.127.100' or '2001:4860:a005::68'.
          */
         remoteAddress: string;
         /**
@@ -1958,7 +1958,7 @@ declare module "tls" {
          */
         remoteFamily: string;
         /**
-         * The numeric representation of the remote port. For example, 443.
+         * The numeric representation of the remote port. For demo, 443.
          */
         remotePort: number;
         /**

@@ -1,31 +1,13 @@
-import {Component, ViewEncapsulation} from '@angular/core';
-import {AppState} from "./app.service";
+import { Component } from '@angular/core';
+import {AppState} from "./app.state";
 
 @Component({
-  selector: 'app',
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./app.style.scss'],
-  template: `
-  <div class="wrapper">
-    <div class="left-outer">
-      <div class="left">
-        <header></header>
-        <documentation></documentation>
-      </div>
-    </div>
-    
-    <div class="right-outer" [class.dark]="appState.get('themeSwitcher')">
-      <div class="right">
-      
-        <preview></preview>
-        
-      </div>
-    </div>
-   </div> 
-  `
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class App {
+export class AppComponent {
+
   constructor(private appState: AppState) {
   }
 }
-

@@ -1,13 +1,11 @@
-import {Component} from '@angular/core';
-import {AppState} from "../app.service";
+import { Component } from '@angular/core';
+import {AppState} from "../app.state";
 
 @Component({
-  selector: 'dark-theme',
-  template: `
-      <disqus [identifier]="'dark'" [shortname]="'ng2'" [lang]="'fr_FR'" [removeOnDestroy]="true"></disqus>
-  `
+  selector: 'app-dark',
+  template: `<disqus [identifier]="'dark'" [shortname]="'ng2'" [removeOnDestroy]="true"></disqus>`
 })
-export class DarkTheme {
+export class DarkComponent {
 
   constructor(appState: AppState) {
     /** add dark class to app */
@@ -17,7 +15,8 @@ export class DarkTheme {
     appState.set('themeCover', prefixRepo("../../assets/img/dark.png"));
   }
 
+
 }
 var prefixRepo = (path) => {
-  return 'ng2-disqus' + path;
-}
+  return path;//'ng2-disqus' + path;
+};

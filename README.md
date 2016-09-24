@@ -3,7 +3,7 @@
 
 ![Angular 2 Share Buttons cover](/assets/cover.PNG?raw=true "Optional Title")
 
-Angular 2 Disqus comment system | [live demo](https://murhafsousli.github.io/ng2-awesome-disqus/)
+Angular 2 Disqus comment system | [live demo](https://murhafsousli.github.io/ng2-disqus/)
 
 ## Installation
 
@@ -13,13 +13,15 @@ Install it with npm
 
 ## Basic usage:
 
+Add `DisqusModule` to your **NgModule** `imports` array.
+
 ```
 <disqus [shortname]="disqusShortname" [identifier]="pageIdentifier" ></disqus>
 ```
 
 ## Advanced usage:
 
-It's highly recommended to read the official Disqus docs [JavaScript configuration variables](https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables) before setting these inputs.
+It's highly recommended to read Disqus official documentation ([JavaScript configuration variables](https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables)) before setting these inputs.
 
 ```
 <disqus [shortname]="disqusShortname" [identifier]="pageIdentifier" 
@@ -28,8 +30,8 @@ It's highly recommended to read the official Disqus docs [JavaScript configurati
     [removeOnDestroy]="true"
   ></disqus>
 ```
-
-by default the component will reset Disqus configuration when it initializes again, to remove Disqus script completely on component destroy, set `[removeOnDestroy]="true"`
+ by default the component will reset *Disqus* configurations after its view initializes again, to remove *Disqus* script completely on component destroy,
+      set `[removeOnDestroy]="true"` (you won't need this option unless you change the site theme as in the preview).
 
 ## Issues
 

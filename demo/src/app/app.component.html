@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div class="left-outer">
+    <div class="left">
+      <app-header></app-header>
+      <app-docs></app-docs>
+    </div>
+  </div>
+
+  <div class="right-outer" [class.dark]="appState.get('themeSwitcher')">
+    <div class="right">
+
+      <app-preview></app-preview>
+
+    </div>
+  </div>
+</div>

@@ -1,14 +1,14 @@
-import { Routes, RouterModule } from '@angular/router';
-import { LightTheme } from './light';
-import { DarkTheme } from './dark';
-import { NoContent } from './no-content';
+import { Routes } from '@angular/router';
 
-import { DataResolver } from './app.resolver';
+import { DarkComponent } from './dark/dark.component';
+import { LightComponent } from './light/light.component';
+import { NocontentComponent } from './nocontent/nocontent.component';
+
 
 
 export const ROUTES: Routes = [
-  { path: '',      component: LightTheme },
-  { path: 'light',  component: LightTheme },
-  { path: 'dark', component: DarkTheme },
-  { path: '**',    component: NoContent },
+  { path: '',      component: LightComponent },
+  { path: 'light',  component: LightComponent },
+  { path: 'dark', component: DarkComponent },
+  { path: '**',    component: NocontentComponent },
 ];
