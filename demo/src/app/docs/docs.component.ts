@@ -13,7 +13,7 @@ export class DocsComponent implements AfterContentInit {
 
   importing = `import {DisqusModule} from "ng2-awesome-disqus";
 @NgModule({
-  imports[
+  imports: [
     DisqusModule
   ]
 })`;

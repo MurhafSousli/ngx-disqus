@@ -13,12 +13,12 @@ Install it with npm
 
 ## Basic usage:
 
-Add `DisqusModule` to your **NgModule** `imports` array.
+Add `DisqusModule` to **NgModule** `imports` array.
 
 ```
 import {DisqusModule} from "ng2-awesome-disqus";
 @NgModule({
-  imports[
+  imports: [
     DisqusModule
   ]
 })
