@@ -30,7 +30,7 @@ In your template
 
 ## Advanced usage:
 
-It's highly recommended to read Disqus official documentation ([JavaScript configuration variables](https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables)) before setting these inputs.
+See Disqus official documentation ([JavaScript configuration variables](https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables)) to use the other inputs.
 
 ```
 <disqus [shortname]="disqusShortname" [identifier]="pageIdentifier" 
@@ -39,8 +39,8 @@ It's highly recommended to read Disqus official documentation ([JavaScript confi
     [removeOnDestroy]="true"
   ></disqus>
 ```
- by default the component will reset *Disqus* configurations after its view initializes again, to remove *Disqus* script completely on component destroy,
-      set `[removeOnDestroy]="true"` (you won't need this option unless you change the site theme as in the preview).
+ by default the component will reset *Disqus* configurations after its view initializes again (but won't remove the script), to remove *Disqus* script completely on component destroy,
+      set `[removeOnDestroy]="true"` (you won't need this option most often).
 
 ## Issues
 
