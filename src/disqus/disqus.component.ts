@@ -1,4 +1,5 @@
 import {Component, Input, ElementRef, AfterViewInit, OnDestroy, Renderer, ChangeDetectionStrategy} from '@angular/core';
+import {WindowService} from '../window/window.service';
 
 @Component({
   selector: 'disqus',
@@ -19,11 +20,14 @@ export class Disqus implements AfterViewInit, OnDestroy {
    */
   @Input() public removeOnDestroy: boolean;
 
-  constructor(private el: ElementRef, private renderer: Renderer) {
+  private window;
+
+  constructor(private el: ElementRef, private renderer: Renderer, window: WindowService) {
+    this.window = window.nativeWindow;
   }
 
   ngAfterViewInit() {
-    if ((<any>window).DISQUS === undefined) {
+    if (this.window.DISQUS === undefined) {
       this.addScriptTag();
     }
     else {
@@ -35,7 +39,7 @@ export class Disqus implements AfterViewInit, OnDestroy {
    * Reset disqus with new inputs.
    */
   reset() {
-    (<any>window).DISQUS.reset({
+    this.window.DISQUS.reset({
       reload: true,
       config: this.getConfig()
     });
@@ -45,7 +49,7 @@ export class Disqus implements AfterViewInit, OnDestroy {
    * Add disqus script to the document.
    */
   addScriptTag() {
-    (<any>window).disqus_config = this.getConfig();
+    this.window.disqus_config = this.getConfig();
 
     let script = this.renderer.createElement(this.el.nativeElement, 'script');
     script.src = `//${this.shortname}.disqus.com/embed.js`;
@@ -60,7 +64,7 @@ export class Disqus implements AfterViewInit, OnDestroy {
   getConfig() {
     let _self = this;
     return function () {
-      this.page.url = this.url || window.location.href;
+      this.page.url = this.url || this.window.location.href;
       this.page.identifier = _self.identifier;
       this.page.category_id = this.categoryId;
       this.language = this.lang;
@@ -69,7 +73,7 @@ export class Disqus implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     if(this.removeOnDestroy){
-      (<any>window).DISQUS = undefined;
+      this.window.DISQUS = undefined;
     }
   }
 

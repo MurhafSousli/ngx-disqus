@@ -1,8 +1,0 @@
-# Node
-node_modules
-src
-typings
-npm-debug.log
-demo
-.idea
-.vscode
