@@ -30,7 +30,7 @@ import {AppState} from './app.state';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, {useHash: true}),
+    RouterModule.forRoot(ROUTES),
     DisqusModule
   ],
   providers: [AppState],
