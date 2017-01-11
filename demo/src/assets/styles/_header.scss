@@ -7,32 +7,12 @@
 
 .cover {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 20px;
   flex-direction: column;
-  @media screen and (min-width: 460px) {
-    flex-direction: row;
-  }
-
-  position: relative;
-}
-
-.cover-angular {
-  max-width: 150px;
-  padding: 20px;
-}
-
-.cover-disqus {
-  display:flex;
   justify-content: center;
   align-items: center;
-}
-
-.cover-plus{
-  display: flex;
-  align-items: center;
-  font-size: 2em;
+  padding: 20px;
+  width: 100%;
+  height: 300px;
 }
 
 .title {
