@@ -64,10 +64,10 @@ export class Disqus implements AfterViewInit, OnDestroy {
   getConfig() {
     let _self = this;
     return function () {
-      this.page.url = this.url || this.window.location.href;
+      this.page.url = _self.url || this.window.location.href;
       this.page.identifier = _self.identifier;
-      this.page.category_id = this.categoryId;
-      this.language = this.lang;
+      this.page.category_id = _self.categoryId;
+      this.language = _self.lang;
     };
   }
 
