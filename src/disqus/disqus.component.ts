@@ -1,5 +1,5 @@
-import {Component, Input, ElementRef, AfterViewInit, OnDestroy, Renderer, ChangeDetectionStrategy} from '@angular/core';
-import {WindowService} from '../window/window.service';
+import { Component, Input, ElementRef, AfterViewInit, OnDestroy, Renderer, ChangeDetectionStrategy } from '@angular/core';
+import { WindowService } from '../window/window.service';
 
 @Component({
   selector: 'disqus',
@@ -7,30 +7,29 @@ import {WindowService} from '../window/window.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class Disqus implements AfterViewInit, OnDestroy {
+export class DisqusComponent implements AfterViewInit, OnDestroy {
 
-  @Input() public identifier: string;
-  @Input() public shortname: string;
-  @Input() public url: string;
-  @Input() public categoryId: string;
-  @Input() public lang: string;
+  @Input() identifier: string;
+  @Input() shortname: string;
+  @Input() url: string;
+  @Input() categoryId: string;
+  @Input() lang: string;
 
   /** Remove DISQUS script on destroy
    *  This is useful to let DISQUS change its theme according if the page background color changed.
    */
-  @Input() public removeOnDestroy: boolean;
+  @Input() removeOnDestroy: boolean;
 
-  private window;
+  window;
 
   constructor(private el: ElementRef, private renderer: Renderer, window: WindowService) {
     this.window = window.nativeWindow;
   }
 
   ngAfterViewInit() {
-    if (this.window.DISQUS === undefined) {
-      this.addScriptTag();
-    }
-    else {
+    if (typeof this.window.DISQUS === 'undefined') {
+      this.addDisqusScript();
+    } else {
       this.reset();
     }
   }
@@ -48,7 +47,7 @@ export class Disqus implements AfterViewInit, OnDestroy {
   /**
    * Add disqus script to the document.
    */
-  addScriptTag() {
+  addDisqusScript() {
     this.window.disqus_config = this.getConfig();
 
     let script = this.renderer.createElement(this.el.nativeElement, 'script');
@@ -62,17 +61,31 @@ export class Disqus implements AfterViewInit, OnDestroy {
    * Get disqus config
    */
   getConfig() {
-    let _self = this;
     return function () {
-      this.page.url = this.url || this.window.location.href;
-      this.page.identifier = _self.identifier;
+      this.page.url = this.validateUrl(this.url);
+      this.page.identifier = this.identifier;
       this.page.category_id = this.categoryId;
       this.language = this.lang;
     };
   }
 
+  validateUrl(url: string) {
+    /** If URL is specified then validate it, otherwise use window URL */
+    if (url) {
+      let r = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+
+      if (r.test(url)) {
+        return encodeURIComponent(url);
+      } else {
+        console.warn('[Disqus]: Invalid URL, fallback to Window URL');
+      }
+    }
+    /** fallback to "Window" URL, or to "Global" in universal */
+    return (this.window) ? encodeURIComponent(this.window.location.href) : (<any>global).url || '';
+  }
+
   ngOnDestroy() {
-    if(this.removeOnDestroy){
+    if (this.removeOnDestroy) {
       this.window.DISQUS = undefined;
     }
   }
