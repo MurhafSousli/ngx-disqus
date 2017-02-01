@@ -65,7 +65,7 @@ export class DisqusComponent implements AfterViewInit, OnDestroy {
     return function () {
       this.page.url = _self.url || this.window.location.href;
       this.page_identifier = _self.identifier;
-      this.page.catagory_id = _self.catagoryId;
+      this.page.catagory_id = _self.categoryId;
       this.page.title = _self.title;
       this.language = _self.lang;
     };
