@@ -14,7 +14,7 @@ export class DisqusComponent implements AfterViewInit, OnDestroy {
   @Input() url: string;
   @Input() categoryId: string;
   @Input() lang: string;
-
+  @Input() title: string;
   /** Remove DISQUS script on destroy
    *  This is useful to let DISQUS change its theme according if the page background color changed.
    */
@@ -61,11 +61,13 @@ export class DisqusComponent implements AfterViewInit, OnDestroy {
    * Get disqus config
    */
   getConfig() {
+    let _self = this;
     return function () {
-      this.page.url = this.validateUrl(this.url);
-      this.page.identifier = this.identifier;
-      this.page.category_id = this.categoryId;
-      this.language = this.lang;
+      this.page.url = _self.url || this.window.location.href;
+      this.page_identifier = _self.identifier;
+      this.page.catagory_id = _self.categoryId;
+      this.page.title = _self.title;
+      this.language = _self.lang;
     };
   }
 
