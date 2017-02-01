@@ -1,1 +1,1 @@
-export * from "./disqus.module";
+export * from './disqus.module';

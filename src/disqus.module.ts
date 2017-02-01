@@ -1,13 +1,11 @@
-import {NgModule} from '@angular/core';
-import {Disqus} from './disqus/disqus.component';
-import {WindowService} from "./window/window.service";
+import { NgModule } from '@angular/core';
+import { DisqusComponent } from './disqus/disqus.component';
+import { WindowService } from './window/window.service';
 
 @NgModule({
-    declarations: [Disqus],
+    declarations: [DisqusComponent],
     providers: [WindowService],
-    exports: [Disqus]
+    exports: [DisqusComponent]
 })
-export class DisqusModule{
-}
-
-export {Disqus}
+export class DisqusModule { }
+export { DisqusComponent }
