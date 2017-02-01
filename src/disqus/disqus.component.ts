@@ -10,6 +10,7 @@ import {WindowService} from '../window/window.service';
 export class Disqus implements AfterViewInit, OnDestroy {
 
   @Input() public identifier: string;
+  @Input() public title: string;
   @Input() public shortname: string;
   @Input() public url: string;
   @Input() public categoryId: string;
@@ -65,6 +66,7 @@ export class Disqus implements AfterViewInit, OnDestroy {
     let _self = this;
     return function () {
       this.page.url = this.url || this.window.location.href;
+      this.page.title = _self.title;
       this.page.identifier = _self.identifier;
       this.page.category_id = this.categoryId;
       this.language = this.lang;
