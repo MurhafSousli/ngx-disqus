@@ -1,4 +1,5 @@
 import { Component, Input, ElementRef, AfterViewInit, OnDestroy, Renderer, ChangeDetectionStrategy } from '@angular/core';
+import { DisqusService } from '../service/disqus.service';
 import { WindowService } from '../window/window.service';
 
 @Component({
@@ -21,13 +22,21 @@ export class DisqusComponent implements AfterViewInit, OnDestroy {
   @Input() removeOnDestroy: boolean;
 
   window;
+  disqus;
+  config;
 
-  constructor(private el: ElementRef, private renderer: Renderer, window: WindowService) {
+  constructor(private el: ElementRef,
+    private renderer: Renderer,
+    disqus: DisqusService,
+    window: WindowService) {
+
     this.window = window.nativeWindow;
+    this.disqus = disqus.nativeDisqus;
+    this.config = disqus.disqusConfig;
   }
 
   ngAfterViewInit() {
-    if (typeof this.window.DISQUS === 'undefined') {
+    if (typeof this.disqus === 'undefined') {
       this.addDisqusScript();
     } else {
       this.reset();
@@ -38,7 +47,7 @@ export class DisqusComponent implements AfterViewInit, OnDestroy {
    * Reset disqus with new inputs.
    */
   reset() {
-    this.window.DISQUS.reset({
+    this.disqus.reset({
       reload: true,
       config: this.getConfig()
     });
@@ -48,7 +57,7 @@ export class DisqusComponent implements AfterViewInit, OnDestroy {
    * Add disqus script to the document.
    */
   addDisqusScript() {
-    this.window.disqus_config = this.getConfig();
+    this.config = this.getConfig();
 
     let script = this.renderer.createElement(this.el.nativeElement, 'script');
     script.src = `//${this.shortname}.disqus.com/embed.js`;
@@ -75,13 +84,13 @@ export class DisqusComponent implements AfterViewInit, OnDestroy {
       let r = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
       if (r.test(url)) {
-        return encodeURIComponent(url);
+        return url;
       } else {
         console.warn('[Disqus]: Invalid URL, fallback to Window URL');
       }
     }
     /** fallback to "Window" URL, or to "Global" in universal */
-    return (this.window) ? encodeURIComponent(this.window.location.href) : (<any>global).url || '';
+    return (this.window) ? this.window.location.href : (<any>global).url || '';
   }
 
   ngOnDestroy() {

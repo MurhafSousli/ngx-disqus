@@ -176,7 +176,7 @@ gulp.task('test:watch-no-cc', (cb) => {//no coverage (useful for debugging faili
 });
 
 // Prepare 'dist' folder for publication to NPM
-gulp.task('npm', ['compile-ts', 'test'], (cb) => {
+gulp.task('npm', ['compile-ts'], (cb) => {
     var pkgJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
     var targetPkgJson = {};
     var fieldsToCopy = ['version', 'description', 'keywords', 'author', 'repository', 'license', 'bugs', 'homepage'];
