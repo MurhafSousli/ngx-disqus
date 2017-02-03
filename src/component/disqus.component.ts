@@ -63,7 +63,7 @@ export class DisqusComponent implements AfterViewInit, OnDestroy {
     script.src = `//${this.shortname}.disqus.com/embed.js`;
     script.async = true;
     script.type = 'text/javascript';
-    script.setAttribute('data-timestamp', new Date().getTime().toString());
+    this.renderer.setElementAttribute(script, 'data-timestamp', new Date().getTime().toString());
   }
 
   /**
