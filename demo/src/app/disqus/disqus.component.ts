@@ -24,9 +24,11 @@ export class DisqusComponent implements OnChanges, OnDestroy {
     @Input() identifier: string;
     @Input() url: string;
     @Input() categoryId: string;
-    @Input() lang: string;
+    @Input() language: string;
     @Input() title: string;
 
+    /** Add DISQUS count script */
+    @Input() count: boolean;
     /** Remove DISQUS script on destroy */
     @Input() removeOnDestroy: boolean;
 
@@ -38,7 +40,7 @@ export class DisqusComponent implements OnChanges, OnDestroy {
         console.log(this.dService.disqus);
 
         if (!this.dService.disqus) {
-            this.dService.addDisqusScript(this.renderer, this.el.nativeElement, this.shortname, this.getConfig());
+            this.addDisqusScript();
         } else {
             let idChange = changes['identifier'];
             let urlChange = changes['url'];
@@ -66,32 +68,58 @@ export class DisqusComponent implements OnChanges, OnDestroy {
             console.log('check Changes');
             if (isResetNeeded) {
                 console.log('Reset');
-                this.dService.reset(this.getConfig());
+                this.reset();
             }
         }
 
     }
 
-    /** Get disqus config */
-    getConfig() {
-        let test = {
-            page: {
-                url: this.validatedUrl(),
-                identifier: this.identifier,
-                category_id: this.categoryId,
-                title: this.title
-            },
-            language: this.lang
+    addDisqusScript() {
+        console.log('addDisqusScript');
+        /** Set disqus config */
+        // this.disqusConfig = config;
+        let self = this;
+        this.dService.window.disqus_config = function () {
+            this.page.identifier = self.identifier;
+            this.page.url = self.url;
+            this.page.title = self.title;
+            this.language = self.language;
         };
-        console.log(test);
-        return test;
+
+        /** Add disqus script */
+        let diqusScript = this.renderer.createElement(this.el.nativeElement, 'script');
+        diqusScript.src = `//${this.shortname}.disqus.com/embed.js`;
+        diqusScript.async = true;
+        diqusScript.type = 'text/javascript';
+        this.renderer.setElementAttribute(diqusScript, 'data-timestamp', new Date().getTime().toString());
+
+        /** Add disqus count script */
+        let countScript = this.renderer.createElement(this.el.nativeElement, 'script');
+        countScript.src = `//${this.shortname}.disqus.com/count.js`;
+        countScript.async = true;
+        countScript.type = 'text/javascript';
+        this.renderer.setElementAttribute(countScript, 'id', 'dsq-count-scr');
+
     }
 
+    /** Reset disqus with new inputs. */
+    reset() {
+        let self = this;
+        this.dService.disqus.reset({
+            reload: true,
+            config: function () {
+                this.page.identifier = self.identifier;
+                this.page.url = self.url;
+                this.page.title = self.title;
+                this.language = self.language;
+            }
+        });
+    }
     /** Get the valid URL */
     validatedUrl() {
         /** If URL is specified then validate it, otherwise use window URL */
         if (this.url) {
-            let r = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+            let r = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
             if (r.test(this.url)) {
                 return this.url;
@@ -105,7 +133,17 @@ export class DisqusComponent implements OnChanges, OnDestroy {
 
     ngOnDestroy() {
         if (this.removeOnDestroy) {
-            this.dService.removeDisqusScript();
+            if (this.dService.window) {
+                this.dService.window.DISQUS = undefined;
+                if (this.count) {
+                    this.dService.window.DISQUSWIDGETS = undefined;
+                }
+            } else {
+                (<any>global).DISQUS = undefined;
+                if (this.count) {
+                    (<any>global).DISQUSWIDGETS = undefined;
+                }
+            }
         }
     }
 
