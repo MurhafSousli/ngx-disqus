@@ -1,6 +1,6 @@
 {
   "name": "ng2-awesome-disqus",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Angular Disqus Module",
   "repository": {
     "type": "git",
@@ -21,8 +21,8 @@
   "main": "./dist",
   "typings": "./dist",
   "scripts": {
-    "start": "gulp",
-    "prepublish": "gulp"
+    "start": "gulp build",
+    "test": " gulp test"
   },
   "dependencies": {
     "@angular/common": "2.0.0",
@@ -70,6 +70,7 @@
     "postcss-strip-inline-comments": "^0.1.5",
     "pump": "^1.0.2",
     "raw-loader": "0.5.1",
+    "run-sequence": "^1.2.2",
     "rxjs": "5.0.0-beta.12",
     "source-map-loader": "^0.1.5",
     "to-string-loader": "^1.1.5",

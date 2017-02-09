@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 // import { DisqusModule } from 'ng2-awesome-disqus';
-import { DisqusModule } from './disqus';
+import { DisqusModule } from 'ng2-awesome-disqus';
 
 import { ROUTES } from './app.routes';
 

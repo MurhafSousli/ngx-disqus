@@ -10,3 +10,5 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - npm install --quiet -g gulp-cli
   - npm install
+
+script: gulp build
