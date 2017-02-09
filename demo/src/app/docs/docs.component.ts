@@ -18,13 +18,10 @@ export class DocsComponent implements AfterContentInit {
   ]
 })`;
 
-  usage = `<disqus [shortname]="disqusShortname" [identifier]="pageIdentifier" ></disqus>`;
+  usage = `<disqus [shortname]="shortname" [identifier]="pageId" ></disqus>`;
 
-  advancedUsage = `<disqus [shortname]="disqusShortname" [identifier]="pageIdentifier" 
-    [url]="customUrl" [categoryId]="catId" [lang]="'en'"
-      
-    [removeOnDestroy]="true"
-  ></disqus>`;
+  advancedUsage = `<disqus [shortname]="shortname" [identifier]="pageId" [url]="anyUrl"
+  [categoryId]="catId" [lang]="'en'" (comment)="onComment($event)"></disqus>`;
 
 
   ngAfterContentInit() {

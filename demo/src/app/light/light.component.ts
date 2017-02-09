@@ -4,16 +4,14 @@ import {AppState} from "../app.state";
 @Component({
   selector: 'app-light',
   template: `
-    <p><button (click)="test()">Test</button></p>
-    <a href="#disqus_thread">Link</a>
-    <disqus [identifier]="identifier" [url]="url" [title]="title" [shortname]="'ng2'" [removeOnDestroy]="true"></disqus>
+    <disqus [identifier]="identifier" [title]="title" [shortname]="shortname" (comment)="display($event)"></disqus>
     `
 })
 export class LightComponent {
 
+  shortname = 'ng2';
   identifier = 'light';
-  title = 'LIGHTER'
-  url = 'http://localhost:4200';
+  title = 'Light Theme';
 
   constructor(appState: AppState) {
     /** add dark class to app */
@@ -23,10 +21,9 @@ export class LightComponent {
     appState.set('themeCover', prefixRepo("../../assets/img/light.png"));
   }
 
-  test(){
-    this.identifier = "dark";
-    this.title = "DARKER";
-    this.url = 'http://localhost:4200';
+  display(comment){
+    console.log(comment);
+    alert(`It works 😎 \n${JSON.stringify(comment)}`);
   }
 }
 var prefixRepo = (path) => {

@@ -1,12 +1,14 @@
 import {
     Component,
     Input,
+    Output,
     OnChanges,
     OnDestroy,
     ChangeDetectionStrategy,
     SimpleChanges,
     Renderer,
-    ElementRef
+    ElementRef,
+    EventEmitter
 } from '@angular/core';
 import { DisqusService } from './disqus.service';
 
@@ -24,21 +26,23 @@ export class DisqusComponent implements OnChanges, OnDestroy {
     @Input() identifier: string;
     @Input() url: string;
     @Input() categoryId: string;
-    @Input() lang: string;
+    @Input() language: string;
     @Input() title: string;
 
+    /** Add DISQUS count script */
+    @Input() count: boolean;
     /** Remove DISQUS script on destroy */
     @Input() removeOnDestroy: boolean;
+    /** Track Comments */
+    @Output() comment = new EventEmitter<any>();
 
     constructor(private renderer: Renderer, private el: ElementRef, private dService: DisqusService) {
     }
 
     ngOnChanges(changes: SimpleChanges) {
 
-        console.log(this.dService.disqus);
-
         if (!this.dService.disqus) {
-            this.dService.addDisqusScript(this.renderer, this.el.nativeElement, this.shortname, this.getConfig());
+            this.addDisqusScript();
         } else {
             let idChange = changes['identifier'];
             let urlChange = changes['url'];
@@ -63,35 +67,48 @@ export class DisqusComponent implements OnChanges, OnDestroy {
             if (langChange && langChange.currentValue !== langChange.previousValue) {
                 isResetNeeded = true;
             }
-            console.log('check Changes');
+
             if (isResetNeeded) {
-                console.log('Reset');
-                this.dService.reset(this.getConfig());
+                this.reset();
             }
         }
 
     }
 
-    /** Get disqus config */
-    getConfig() {
-        let test = {
-            page: {
-                url: this.validatedUrl(),
-                identifier: this.identifier,
-                category_id: this.categoryId,
-                title: this.title
-            },
-            language: this.lang
-        };
-        console.log(test);
-        return test;
+    addDisqusScript() {
+
+        /** Set disqus config */
+        this.dService.disqusConfig = this.getConfig();
+
+        /** Add DISQUS script */
+        let diqusScript = this.renderer.createElement(this.el.nativeElement, 'script');
+        diqusScript.src = `//${this.shortname}.disqus.com/embed.js`;
+        diqusScript.async = true;
+        diqusScript.type = 'text/javascript';
+        this.renderer.setElementAttribute(diqusScript, 'data-timestamp', new Date().getTime().toString());
     }
+
+    /** Reset disqus with new inputs. */
+    reset() {
+        this.dService.disqus.reset({
+            reload: true,
+            config: this.getConfig()
+        });
+    }
+
+    /** TODO: Get DISQUS Count */
+    /** ngAfterViewInit(){
+            this.dService.getCount().subscribe((res)=>{
+                console.log(res);
+            })
+        }
+    */
 
     /** Get the valid URL */
     validatedUrl() {
         /** If URL is specified then validate it, otherwise use window URL */
         if (this.url) {
-            let r = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+            let r = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
             if (r.test(this.url)) {
                 return this.url;
@@ -103,10 +120,32 @@ export class DisqusComponent implements OnChanges, OnDestroy {
         return this.dService.url;
     }
 
-    ngOnDestroy() {
-        if (this.removeOnDestroy) {
-            this.dService.removeDisqusScript();
-        }
+    /** Get disqus settings from inputs */
+    getConfig() {
+        let self = this;
+        return function () {
+            this.page.identifier = self.identifier;
+            this.page.url = self.url;
+            this.page.title = self.title;
+            this.category_id = self.categoryId;
+            this.language = self.language;
+
+            /* Available callbacks are afterRender, onInit, onNewComment, onPaginate, onReady, preData, preInit, preReset */
+            this.callbacks.onNewComment = [(comment) => {
+                self.comment.emit(comment);
+            }];
+        };
     }
 
+    ngOnDestroy() {
+        if (this.dService.window) {
+            this.dService.window.DISQUS = undefined;
+            this.dService.window.disqusConfig = undefined;
+            this.dService.window.DISQUSWIDGETS = undefined;
+        } else {
+            (<any>global).DISQUS = undefined;
+            (<any>global).disqusConfig = undefined;
+            (<any>global).DISQUSWIDGETS = undefined;
+        }
+    }
 }

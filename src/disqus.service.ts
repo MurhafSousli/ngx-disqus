@@ -1,4 +1,21 @@
-import { Injectable, Renderer } from '@angular/core';
+import { Injectable } from '@angular/core';
+// import { Jsonp } from '@angular/http';
+// import { Observable } from 'rxjs/Observable';
+// import 'rxjs/add/operator/map';
+// import 'rxjs/add/observable/empty';
+// import 'rxjs/add/operator/catch';
+
+const nativeWindow = (): any => {
+  // return the global native browser window object
+  return typeof window !== 'undefined' ? window : undefined;
+};
+
+export interface DisqusWidget {
+  proto;
+  forum;
+  displayCount;
+  getCount;
+}
 
 declare const global: any; // To make AoT compiler (ngc) happy
 
@@ -7,6 +24,7 @@ export class DisqusService {
 
   window;
 
+  // constructor(private jsonp: Jsonp) {
   constructor() {
     this.window = nativeWindow();
   }
@@ -31,48 +49,30 @@ export class DisqusService {
     }
   }
 
-  addDisqusScript(renderer: Renderer, element: HTMLElement, shortname: string, config: any) {
-    console.log('addDisqusScript');
-    /** Set disqus config */
-    this.disqusConfig = config;
-
-    /** Add disqus script */
-    let diqusScript = renderer.createElement(element, 'script');
-    diqusScript.src = `//${shortname}.disqus.com/embed.js`;
-    diqusScript.async = true;
-    diqusScript.type = 'text/javascript';
-    renderer.setElementAttribute(diqusScript, 'data-timestamp', new Date().getTime().toString());
-
-    /** Add disqus count script */
-    let countScript = renderer.createElement(element, 'script');
-    countScript.src = `//${shortname}.disqus.com/count.js`;
-    countScript.async = true;
-    countScript.type = 'text/javascript';
-    renderer.setElementAttribute(countScript, 'id', 'dsq-count-scr');
+  get disqusWidget(): DisqusWidget {
+    return (this.window) ? this.window.DISQUSWIDGETS : (<any>global).DISQUSWIDGETS;
   }
 
-  /** Reset disqus with new inputs. */
-  reset(disqusConfig: any) {
-    this.disqus.reset({
-      reload: true,
-      config: disqusConfig
-    });
-  }
+  // getCount() {
 
-  removeDisqusScript() {
-    if (this.window) {
-      this.window.DISQUS = undefined;
-      this.window.DISQUSWIDGETS = undefined;
-    } else {
-      (<any>global).DISQUS = undefined;
-      (<any>global).DISQUSWIDGETS = undefined;
-    }
-  }
-
+  //   //TODO: http://ng2.disqus.com/count-data.js?2=https://murhafsousli.github.io/ng2-disqus/
+  //   let proto = 'https:';
+  //   let forum = 'ng2';
+  //   let url = 'https://murhafsousli.github.io/ng2-disqus/';
+  //   let finalUrl = `${proto}//${forum}.disqus.com/count-data.js?callback=JSONP_CALLBACK&2=${url}`;
+  //   console.log(finalUrl);
+  //   return this.jsonp.request(finalUrl)
+  //     .map((data: any) => {
+  //       console.log(data);
+  //       data = data.text();
+  //       let result = JSON.parse(data.replace(/^displayCount\((.*)\)/, '$1'));
+  //       return result.count || 0;
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       return Observable.empty()
+  //     });
+  // }
 
 }
 
-const nativeWindow = (): any => {
-  // return the global native browser window object
-  return typeof window !== 'undefined' ? window : undefined;
-}

@@ -28,22 +28,22 @@ import {DisqusModule} from "ng2-awesome-disqus";
 In your template
 
 ```
-<disqus [shortname]="disqusShortname" [identifier]="pageIdentifier" ></disqus>
+<disqus [shortname]="shortname" [identifier]="pageId" ></disqus>
 ```
 
 ## Advanced usage:
 
-See Disqus official documentation ([JavaScript configuration variables](https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables)) to use the other inputs.
+See Disqus official documentation ([JavaScript configuration variables](https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables)) before using these inputs.
 
 ```
-<disqus [shortname]="disqusShortname" [identifier]="pageIdentifier" 
+<disqus [shortname]="shortname" [identifier]="pageId" 
     [url]="customUrl" [categoryId]="catId" [lang]="'en'"
       
-    [removeOnDestroy]="true"
+    (comment)="onComment($event)"
   ></disqus>
 ```
- by default the component will reset *Disqus* configurations after its view initializes again (but won't remove the script), to remove *Disqus* script completely on component destroy,
-      set `[removeOnDestroy]="true"` (you won't need this option most often).
+
+Use the output `(comment)` to get user's comment response.
 
 ## Issues
 
