@@ -5,7 +5,7 @@
   <h1 align="center">Angular Disqus Module</h1>
 </p>
 
-Add disqus to your angular app instantly | [live demo](https://murhafsousli.github.io/ng2-disqus/)
+Add disqus to your app instantly | [live demo](https://murhafsousli.github.io/ng2-disqus/)
 
 ## Installation
 
@@ -13,9 +13,19 @@ Install it with npm
 
 `npm install ng2-awesome-disqus --save`
 
+### SystemJS
+
+If you are using SystemJS, you should also adjust your configuration to point to the UMD bundle.
+
+In your systemjs config file, map needs to tell the System loader where to look for ng2-awesome-disqus:
+
+map: {
+  'ng2-awesome-disqus': 'node_modules/ng2-awesome-disqus/bundles/ng2-awesome-disqus.umd.js',
+}
+
 ## Basic usage:
 
-Add `DisqusModule` to **NgModule** `imports` array.
+Add `DisqusModule` in your root module
 
 ```
 import {DisqusModule} from "ng2-awesome-disqus";
@@ -25,7 +35,7 @@ import {DisqusModule} from "ng2-awesome-disqus";
   ]
 })
 ```
-In your template
+Add disqus component
 
 ```
 <disqus [shortname]="shortname" [identifier]="pageId" ></disqus>
@@ -43,7 +53,7 @@ See Disqus official documentation ([JavaScript configuration variables](https://
   ></disqus>
 ```
 
-Use the output `(comment)` to get user's comment response.
+Use the output `(comment)` to get the responses for the new comments posted by users.
 
 ## Issues
 
