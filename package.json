@@ -28,6 +28,7 @@
     "@angular/core": "4.0.0"
   },
   "devDependencies": {
+    "rxjs": "5.2.0",
     "@angular/compiler": "4.0.0",
     "@angular/compiler-cli": "4.0.0",
     "@angular/platform-browser": "4.0.0",
