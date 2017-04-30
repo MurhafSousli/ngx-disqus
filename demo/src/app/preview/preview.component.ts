@@ -7,7 +7,7 @@ import {AppState} from '../app.state';
 })
 export class PreviewComponent {
 
-  constructor(private appState: AppState) {
+  constructor(public appState: AppState) {
 
   }
 
