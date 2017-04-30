@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import {AppState} from "../app.state";
+import {Component} from '@angular/core';
+import {AppState} from '../app.state';
 
 @Component({
   selector: 'app-preview',
   templateUrl: './preview.component.html'
 })
-export class PreviewComponent{
+export class PreviewComponent {
 
-  constructor(private appState: AppState){
+  constructor(public appState: AppState) {
 
   }
 

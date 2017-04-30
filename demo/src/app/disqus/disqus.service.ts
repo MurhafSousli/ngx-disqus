@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 const nativeWindow = (): any => {
   // return the global native browser window object

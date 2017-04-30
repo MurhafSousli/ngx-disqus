@@ -68,7 +68,6 @@ export class DisqusComponent implements OnChanges, OnDestroy {
         this.reset();
       }
     }
-
   }
 
   addDisqusScript() {

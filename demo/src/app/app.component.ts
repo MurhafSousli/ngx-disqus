@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {AppState} from "./app.state";
+import {Component} from '@angular/core';
+import {AppState} from './app.state';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,6 @@ import {AppState} from "./app.state";
 })
 export class AppComponent {
 
-  constructor(private appState: AppState) {
+  constructor(public appState: AppState) {
   }
 }
