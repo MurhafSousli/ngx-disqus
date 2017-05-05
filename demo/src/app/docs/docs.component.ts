@@ -1,31 +1,22 @@
-import {Component, AfterContentInit} from '@angular/core';
-
-import 'prismjs/prism';
-declare var Prism: any;
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-docs',
   templateUrl: './docs.component.html'
 })
-export class DocsComponent implements AfterContentInit {
+export class DocsComponent {
 
-  constructor() { }
-
-  importing = `import {DisqusModule} from "ng2-awesome-disqus";
+  importing = `import { DisqusModule } from 'ngx-disqus';
 @NgModule({
   imports: [
+    // ...
     DisqusModule
   ]
 })`;
 
-  usage = `<disqus [shortname]="shortname" [identifier]="pageId" ></disqus>`;
+  usage = `<disqus [shortname]="shortname" [identifier]="pageId"></disqus>`;
 
   advancedUsage = `<disqus [shortname]="shortname" [identifier]="pageId" [url]="anyUrl"
   [categoryId]="catId" [lang]="'en'" (comment)="onComment($event)"></disqus>`;
-
-
-  ngAfterContentInit() {
-    setTimeout(()=>Prism.highlightAll(), 500);
-  }
 
 }

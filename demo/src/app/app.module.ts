@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { DisqusModule } from './disqus';
-// import { DisqusModule } from 'ng2-awesome-disqus';
+import { HighlightModule } from './highlight'
+// import { DisqusModule } from 'ngx-disqus';
 
 import { ROUTES } from './app.routes';
 
@@ -31,8 +32,9 @@ import { AppState } from './app.state';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES),
-    DisqusModule
+    RouterModule.forRoot(ROUTES, {useHash: true}),
+    DisqusModule,
+    HighlightModule
   ],
   providers: [AppState],
   bootstrap: [AppComponent]

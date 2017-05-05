@@ -9,7 +9,7 @@ import {AppState} from '../app.state';
 })
 export class LightComponent {
 
-  shortname = 'ng2';
+  shortname = 'ngx';
   identifier = 'light';
   title = 'Light Theme';
 
@@ -18,7 +18,7 @@ export class LightComponent {
 
     appState.set('themeSwitcher', false);
     appState.set('themeName', 'Light Theme');
-    appState.set('themeCover', '../../assets/img/light.png');
+    appState.set('themeCover', 'assets/img/light.png');
   }
 
   display(comment) {
