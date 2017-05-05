@@ -4,7 +4,7 @@
 </p>
 
  Add disqus to your app instantly 
- [![npm](https://img.shields.io/badge/demo-online-ed1c46.svg?style=flat-square)](https://murhafsousli.github.io/ngx-disqus/) [![npm](https://img.shields.io/npm/v/ngx-disqus.svg?maxAge=2592000?style=flat-square)](https://github.com/MurhafSousli/ngx-disqus) [![Build Status](https://travis-ci.org/MurhafSousli/ngx-disqus.svg?flat-square)](https://travis-ci.org/MurhafSousli/ngx-disqus) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](/LICENSE)
+ [![npm](https://img.shields.io/badge/demo-online-ed1c46.svg?style=flat-square)](https://murhafsousli.github.io/ngx-disqus/) [![npm](https://img.shields.io/npm/v/ngx-disqus.svg?style=flat-square)](https://github.com/MurhafSousli/ngx-disqus) [![Build Status](https://travis-ci.org/MurhafSousli/ngx-disqus.svg?style=flat-square)](https://travis-ci.org/MurhafSousli/ngx-disqus) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](/LICENSE)
 
 ## Installation
 
