@@ -3,7 +3,8 @@
   <h1 align="center">Angular Disqus Module</h1>
 </p>
 
- Add disqus to your app instantly | [live demo](https://murhafsousli.github.io/ngx-disqus/) | [![npm](https://img.shields.io/npm/v/ngx-disqus.svg?maxAge=2592000?style=plastic)](https://github.com/MurhafSousli/ngx-disqus) [![Build Status](https://travis-ci.org/MurhafSousli/ngx-disqus.svg?branch=master)](https://travis-ci.org/MurhafSousli/ngx-disqus)
+ Add disqus to your app instantly 
+ [![npm](https://img.shields.io/badge/demo-online-ed1c46.svg?style=flat-square)](https://murhafsousli.github.io/ngx-disqus/)(https://github.com/MurhafSousli/ngx-disqus) [![npm](https://img.shields.io/npm/v/ngx-disqus.svg?maxAge=2592000?style=flat-square)](https://github.com/MurhafSousli/ngx-disqus) [![Build Status](https://travis-ci.org/MurhafSousli/ngx-disqus.svg?flat-square)](https://travis-ci.org/MurhafSousli/ngx-disqus) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](/LICENSE)
 
 ## Installation
 
@@ -69,6 +70,3 @@ If you identify any errors in this component, or have an idea for an improvement
  - [github/murhafsousli](https://github.com/MurhafSousli)
  - [twitter/murhafsousli](https://twitter.com/MurhafSousli)
 
-## License
-
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](/LICENSE)
