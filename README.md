@@ -3,7 +3,9 @@
   <h1 align="center">Angular Disqus Module</h1>
 </p>
 
-[![npm](https://img.shields.io/npm/v/ngx-disqus.svg?maxAge=2592000?style=plastic)](https://github.com/MurhafSousli/ngx-disqus) [![Build Status](https://travis-ci.org/MurhafSousli/ngx-disqus.svg?branch=master)](https://travis-ci.org/MurhafSousli/ngx-disqus) Add disqus to your app instantly | [live demo](https://murhafsousli.github.io/ngx-disqus/)
+Add disqus to your app instantly!
+
+[![npm](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://murhafsousli.github.io/ngx-disqus/) [![npm](https://img.shields.io/npm/v/ngx-disqus.svg)](https://github.com/MurhafSousli/ngx-disqus) [![Build Status](https://travis-ci.org/MurhafSousli/ngx-disqus.svg)](https://travis-ci.org/MurhafSousli/ngx-disqus) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](/LICENSE)
 
 ## Installation
 
@@ -47,10 +49,9 @@ Add disqus component
 
 See Disqus official documentation ([JavaScript configuration variables](https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables)) before using these inputs.
 
-```
+```ts
 <disqus [shortname]="shortname" [identifier]="pageId" 
-    [url]="customUrl" [categoryId]="catId" [lang]="'en'"
-      
+    [url]="customUrl" [categoryId]="catId" [lang]="'en'"     
     (comment)="onComment($event)"
   ></disqus>
 ```
@@ -69,6 +70,3 @@ If you identify any errors in this component, or have an idea for an improvement
  - [github/murhafsousli](https://github.com/MurhafSousli)
  - [twitter/murhafsousli](https://twitter.com/MurhafSousli)
 
-## License
-
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](/LICENSE)
