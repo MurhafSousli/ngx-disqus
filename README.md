@@ -3,13 +3,13 @@
   <h1 align="center">Angular Disqus Module</h1>
 </p>
 
-[![npm](https://img.shields.io/npm/v/ngx-disqus.svg?maxAge=2592000?style=plastic)](https://github.com/MurhafSousli/ngx-disqus) [![Build Status](https://travis-ci.org/MurhafSousli/ngx-disqus.svg?branch=master)](https://travis-ci.org/MurhafSousli/ngx-disqus) [![npm](https://img.shields.io/npm/dt/ngx-disqus.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/ngx-disqus) Add disqus to your app instantly | [live demo](https://murhafsousli.github.io/ngx-disqus/)
+[![npm](https://img.shields.io/npm/v/ngx-disqus.svg?maxAge=2592000?style=plastic)](https://github.com/MurhafSousli/ngx-disqus) [![Build Status](https://travis-ci.org/MurhafSousli/ngx-disqus.svg?branch=master)](https://travis-ci.org/MurhafSousli/ngx-disqus) Add disqus to your app instantly | [live demo](https://murhafsousli.github.io/ngx-disqus/)
 
 ## Installation
 
 Install it with npm
 
-`npm install ngx-disqus --save`
+`npm install --save ngx-disqus`
 
 ### SystemJS
 
