@@ -1,14 +1,14 @@
 {
-  "name": "ng2-awesome-disqus",
-  "version": "1.1.1",
+  "name": "ngx-disqus",
+  "version": "1.2.0",
   "description": "Angular Disqus Module",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:MurhafSousli/ng2-disqus.git"
+    "url": "git+ssh://git@github.com:MurhafSousli/ngx-disqus.git"
   },
-  "homepage": "https://github.com/MurhafSousli/ng2-disqus#readme",
+  "homepage": "https://github.com/MurhafSousli/ngx-disqus#readme",
   "bugs": {
-    "url": "https://github.com/MurhafSousli/ng2-disqus/issues"
+    "url": "https://github.com/MurhafSousli/ngx-disqus/issues"
   },
   "keywords": [
     "disqus",

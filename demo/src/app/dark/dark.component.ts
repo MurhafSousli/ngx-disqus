@@ -8,7 +8,7 @@ import {AppState} from '../app.state';
 })
 export class DarkComponent {
 
-  shortname = 'ng2';
+  shortname = 'ngx';
   identifier = 'dark';
   title = 'Dark Theme';
 

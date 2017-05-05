@@ -10,7 +10,7 @@ import {
   ElementRef,
   EventEmitter
 } from '@angular/core';
-import {DisqusService} from './disqus.service';
+import { DisqusService } from './disqus.service';
 
 @Component({
   selector: 'disqus',
@@ -68,7 +68,6 @@ export class DisqusComponent implements OnChanges, OnDestroy {
         this.reset();
       }
     }
-
   }
 
   addDisqusScript() {

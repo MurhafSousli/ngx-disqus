@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0
+
+ - Change package name to `ngx-disqus`
+
 ## 1.1.1
 
  - Cleanup
