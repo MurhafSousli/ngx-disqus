@@ -3,14 +3,9 @@ import {AppState} from '../app.state';
 
 @Component({
   selector: 'app-dark',
-  template: `
-    <disqus [identifier]="identifier" [title]="title" [shortname]="shortname" (comment)="display($event)"></disqus>`
+  template: '<disqus identifier="/ngx-disqus/dark" title="Dark Theme" (comment)="display($event)"></disqus>'
 })
 export class DarkComponent {
-
-  shortname = 'ngx';
-  identifier = 'dark';
-  title = 'Dark Theme';
 
   constructor(appState: AppState) {
     /** add dark class to app */

@@ -32,8 +32,8 @@ import { AppState } from './app.state';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, {useHash: true}),
-    DisqusModule,
+    RouterModule.forRoot(ROUTES),
+    DisqusModule.forRoot('ngx'),
     HighlightModule
   ],
   providers: [AppState],
