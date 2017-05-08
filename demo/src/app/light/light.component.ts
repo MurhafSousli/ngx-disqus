@@ -1,16 +1,16 @@
-import {Component} from '@angular/core';
-import {AppState} from '../app.state';
+import { Component } from '@angular/core';
+import { AppState } from '../app.state';
 
 @Component({
   selector: 'app-light',
   template: `
-    <disqus [identifier]="identifier" [title]="title" [shortname]="shortname" (comment)="display($event)"></disqus>
+    <disqus [identifier]="identifier" [title]="title" (comment)="display($event)"></disqus>
+    <!-- <button (click)="test()">TEST</button> -->
   `
 })
 export class LightComponent {
 
-  shortname = 'ngx';
-  identifier = 'light';
+  identifier = '/ngx-disqus/';
   title = 'Light Theme';
 
   constructor(appState: AppState) {
@@ -24,4 +24,9 @@ export class LightComponent {
   display(comment) {
     console.log(`It works 😎 \n${JSON.stringify(comment)}`);
   }
+
+  // test() {
+  //   this.identifier = '/ngx-disqus/dark/';
+  //   this.title = 'TEST';
+  // }
 }

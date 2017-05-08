@@ -10,13 +10,13 @@ export class DocsComponent {
 @NgModule({
   imports: [
     // ...
-    DisqusModule
+    DisqusModule.forRoot('disqus_shortname')
   ]
 })`;
 
-  usage = `<disqus [shortname]="shortname" [identifier]="pageId"></disqus>`;
+  usage = `<disqus [identifier]="pageId"></disqus>`;
 
-  advancedUsage = `<disqus [shortname]="shortname" [identifier]="pageId" [url]="anyUrl"
-  [categoryId]="catId" [lang]="'en'" (comment)="onComment($event)"></disqus>`;
+  advancedUsage = `<disqus [identifier]="pageId" [url]="url" [category]="catId" [lang]="'en'" 
+        (comment)="onComment($event)"></disqus>`;
 
 }

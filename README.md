@@ -37,7 +37,7 @@ import { DisqusModule } from "ngx-disqus";
 @NgModule({
   imports: [
     // ...
-    DisqusModule
+    DisqusModule.forRoot('disqus_shortname')
   ]
 })
 ```
@@ -60,6 +60,10 @@ See Disqus official documentation ([JavaScript configuration variables](https://
 ```
 
 Use the output `(comment)` to get the responses for the new comments posted by users.
+
+#### NOTE
+
+DISQUS won't work properly with the hash # on the router, it requires the full hashbang #! as mentioned in the official docs, check [DISQUS on ajax sites](https://help.disqus.com/customer/portal/articles/472107-using-disqus-on-ajax-sites)
 
 ## Issues
 

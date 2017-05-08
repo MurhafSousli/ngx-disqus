@@ -28,15 +28,15 @@
   <section>
     <h2>Installation</h2>
     <p>Install it with npm</p>
-    <highlight [code]="'$ npm install --save ngx-disqus'"></highlight>
+    <highlight code="$ npm install --save ngx-disqus"></highlight>
   </section>
 
   <section>
     <h2>Basic usage</h2>
     <p>Add <code highlight>DisqusModule</code> in the root module</p>
-    <highlight [lang]="'ts'" [code]="importing"></highlight>
+    <highlight lang="ts" [code]="importing"></highlight>
     <p>In the template</p>
-    <highlight [lang]="'html'" [code]="usage"></highlight>
+    <highlight lang="html" [code]="usage"></highlight>
   </section>
 
   <section>
@@ -44,9 +44,10 @@
     <p>See Disqus official documentation (<a href="https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables">JavaScript
       configuration variables</a>) before using these inputs.</p>
 
-    <highlight [lang]="'html'" [code]="advancedUsage"></highlight>
+    <highlight lang="html" [code]="advancedUsage"></highlight>
 
     <p>Use the output <code highlight>(comment)</code> to get responses for the new comments posted by users.</p>
+    <p><b>NOTE:</b> DISQUS won't work properly with the hash <b>#</b> on the router, it requires the full hashbang <b>#!</b> as mentioned in the official docs, check <a href="https://help.disqus.com/customer/portal/articles/472107-using-disqus-on-ajax-sites">DISQUS on ajax sites</a>
   </section>
 
 

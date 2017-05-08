@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.0
+
+ - refactor(DisqusComponent) remove unnecessary checks for input changes
+ - refactor(DisqusService) remove unnecessary getters for `window`
+
+ **Breaking changes**
+
+ - `shortname` input is removed, set your disqus shortname here `DisqusModule.forRoot('disqus_shortname')`
+ - `categoryId` input is renamed to `category`
+
 ## 2.0.0
 
  - Change package name to `ngx-disqus`
