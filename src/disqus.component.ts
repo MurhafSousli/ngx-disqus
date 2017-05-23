@@ -1,8 +1,6 @@
 import { Component, Input, Output, OnChanges, OnDestroy, ChangeDetectionStrategy, Renderer2, ElementRef, EventEmitter } from '@angular/core';
 import { DisqusService } from './disqus.service';
 
-declare const window: any;
-
 @Component({
   selector: 'disqus',
   template: '<div id="disqus_thread"></div>',
@@ -24,7 +22,7 @@ export class DisqusComponent implements OnChanges, OnDestroy {
 
   ngOnChanges() {
 
-    if (!window.DISQUS) {
+    if (!this.dService.window.DISQUS) {
       this.addDisqusScript();
     } else {
       this.reset();
@@ -34,7 +32,7 @@ export class DisqusComponent implements OnChanges, OnDestroy {
   addDisqusScript() {
 
     /** Set DISQUS config */
-    window.disqus_config = this.getConfig();
+    this.dService.window.disqus_config = this.getConfig();
 
     /** Add DISQUS script */
     const disqusScript = this.renderer.createElement('script');
@@ -47,7 +45,7 @@ export class DisqusComponent implements OnChanges, OnDestroy {
 
   /** Reset DISQUS with the new inputs */
   reset() {
-    window.DISQUS.reset({
+    this.dService.window.DISQUS.reset({
       reload: true,
       config: this.getConfig()
     });
@@ -86,7 +84,7 @@ export class DisqusComponent implements OnChanges, OnDestroy {
   }
 
   ngOnDestroy() {
-    window.DISQUS = undefined;
-    window.disqus_config = undefined;
+    this.dService.window.DISQUS = undefined;
+    this.dService.window.disqus_config = undefined;
   }
 }

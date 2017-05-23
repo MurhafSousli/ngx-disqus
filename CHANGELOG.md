@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.1
+
+ - support for Universal
+
 ## 2.1.0
 
  - refactor(DisqusComponent) remove unnecessary checks for input changes
