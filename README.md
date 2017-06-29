@@ -45,7 +45,7 @@ import { DisqusModule } from "ngx-disqus";
 Add disqus component
 
 ```html
-<disqus [shortname]="shortname" [identifier]="pageId"></disqus>
+<disqus [identifier]="pageId"></disqus>
 ```
 
 ## Advanced usage:
@@ -53,7 +53,7 @@ Add disqus component
 See Disqus official documentation ([JavaScript configuration variables](https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables)) before using these inputs.
 
 ```ts
-<disqus [shortname]="shortname" [identifier]="pageId" 
+<disqus [identifier]="pageId" 
     [url]="customUrl" [categoryId]="catId" [lang]="'en'"     
     (comment)="onComment($event)"
   ></disqus>
