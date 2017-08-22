@@ -14,6 +14,7 @@ module.exports = function (config) {
             require('karma-remap-coverage'),
             require('karma-sourcemap-loader'),
             require('karma-mocha-reporter'),
+            require('karma-jasmine-html-reporter'),
         ],
 
         customLaunchers: {
@@ -40,12 +41,12 @@ module.exports = function (config) {
             noInfo: true,
             // and use stats to turn off verbose output
             stats: {
-                // options i.e. 
+                // options i.e.
                 chunks: false
             }
         },
 
-        // save interim raw coverage report in memory 
+        // save interim raw coverage report in memory
         coverageReporter: {
             type: 'in-memory'
         },
@@ -60,10 +61,11 @@ module.exports = function (config) {
             output: 'autowatch',
         },
 
-        reporters: config.hasCoverage ? ['mocha', 'coverage', 'remap-coverage'] : ['mocha'],
+        reporters: config.hasCoverage ? ['mocha', 'kjhtml', 'coverage', 'remap-coverage'] : ['mocha', 'kjhtml'],
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
+        failOnEmptyTestSuite: false,
         autoWatch: false,
         browsers: ['Chrome'],
         singleRun: true

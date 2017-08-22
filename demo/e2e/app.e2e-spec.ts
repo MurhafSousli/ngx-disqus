@@ -1,10 +1,10 @@
-import { DemoPage } from './app.po';
+import { NgxDisqusDemoPage } from './app.po';
 
-describe('demo App', () => {
-  let page: DemoPage;
+describe('ngx-disqus-demo App', () => {
+  let page: NgxDisqusDemoPage;
 
   beforeEach(() => {
-    page = new DemoPage();
+    page = new NgxDisqusDemoPage ();
   });
 
   it('should display message saying app works', () => {

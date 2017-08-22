@@ -1,9 +1,9 @@
 <p align="center">
-  <img height="200px" width="200px" style="text-align: center;" src="https://cdn.rawgit.com/MurhafSousli/ngx-disqus/master/assets/logo.svg">
+  <img height="150px" width="150px" style="text-align: center;" src="https://cdn.rawgit.com/MurhafSousli/ngx-disqus/master/assets/logo.svg">
   <h1 align="center">Angular Disqus Module</h1>
 </p>
 
-Add disqus to your app instantly!
+Add Disqus to your app instantly!
 
 [![npm](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://murhafsousli.github.io/ngx-disqus/)
 [![npm](https://img.shields.io/npm/v/ngx-disqus.svg)](https://www.npmjs.com/package/ngx-disqus)
@@ -41,29 +41,41 @@ import { DisqusModule } from "ngx-disqus";
   ]
 })
 ```
+The function `forRoot(shortname: string)` tells the Disqus service your forum's shortname, which is the unique identifier for your website as registered on Disqus. If undefined, the Disqus embed will not load.
 
-Add disqus component
+**Now you can add Disqus component**
 
-```html
-<disqus [identifier]="pageId"></disqus>
+```ts
+@Component({
+  selector: 'any-component',
+  template: `<disqus [identifier]="pageId"></disqus>`
+})
+export class AnyComponent {
+
+  pageId = '/about';
+}
 ```
 
-## Advanced usage:
+Disqus component requires the `identifier` input to work properly on your app
+For example If the page URL is `localhost:4200/about` then the identifier should be `/about`.
+
+## More Options:
 
 See Disqus official documentation ([JavaScript configuration variables](https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables)) before using these inputs.
 
 ```ts
-<disqus [identifier]="pageId" 
-    [url]="customUrl" [categoryId]="catId" [lang]="'en'"     
-    (comment)="onComment($event)"
-  ></disqus>
+<disqus [identifier]="pageId" [url]="url" [category]="catId" [lang]="'en'"
+        (onNewComment)="onComment($event)" (onReady)="onReady($event)" (onPaginate)="onPaginate($event)"></disqus>
 ```
-
-Use the output `(comment)` to get the responses for the new comments posted by users.
 
 #### NOTE
 
-DISQUS won't work properly with the hash # on the router, it requires the full hashbang #! as mentioned in the official docs, check [DISQUS on ajax sites](https://help.disqus.com/customer/portal/articles/472107-using-disqus-on-ajax-sites)
+Angular router supports two LocationStrategy providers: </p>
+
+  - **PathLocationStrategy:** the default "HTML5 pushState" style. (Compatible with Disqus)
+  - **HashLocationStrategy:** the "hash URL" style. (Incompatible with Disqus)
+
+For more info check [DISQUS on ajax sites](https://help.disqus.com/customer/portal/articles/472107-using-disqus-on-ajax-sites)
 
 ## Issues
 

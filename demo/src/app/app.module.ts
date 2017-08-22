@@ -4,10 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { DisqusModule } from './disqus';
-import { HighlightModule } from './highlight'
+import { HighlightModule } from 'ngx-highlightjs';
 // import { DisqusModule } from 'ngx-disqus';
 
-import { ROUTES } from './app.routes';
+import { ROUTES } from './app-routing';
 
 import { AppComponent } from './app.component';
 import { DarkComponent } from './dark/dark.component';
@@ -34,7 +34,7 @@ import { AppState } from './app.state';
     HttpModule,
     RouterModule.forRoot(ROUTES),
     DisqusModule.forRoot('ngx'),
-    HighlightModule
+    HighlightModule.forRoot({ theme: 'vs' })
   ],
   providers: [AppState],
   bootstrap: [AppComponent]

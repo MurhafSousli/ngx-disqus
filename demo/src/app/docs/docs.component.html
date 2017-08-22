@@ -28,26 +28,38 @@
   <section>
     <h2>Installation</h2>
     <p>Install it with npm</p>
-    <highlight code="$ npm install --save ngx-disqus"></highlight>
+    <pre><code highlight [textContent]="installation"></code></pre>
   </section>
 
   <section>
-    <h2>Basic usage</h2>
-    <p>Add <code highlight>DisqusModule</code> in the root module</p>
-    <highlight lang="ts" [code]="importing"></highlight>
-    <p>In the template</p>
-    <highlight lang="html" [code]="usage"></highlight>
+    <h2>Usage</h2>
+    <p>Add <b>DisqusModule</b> in the root module</p>
+    <pre><code highlight [textContent]="importing"></code></pre>
+
+    <span>The function </span>
+    <code highlight>
+        forRoot(shortname: string)
+    </code>
+    <p>Tells the Disqus service your forum's shortname, which is the unique identifier for your website as registered on Disqus.
+      If undefined, the Disqus embed will not load.</p>
+
+    <p>Now you can add Disqus component</p>
+    <pre><code highlight [textContent]="usage"></code></pre>
   </section>
 
   <section>
-    <h2>Advanced usage</h2>
+    <h2>More Options</h2>
+
     <p>See Disqus official documentation (<a href="https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables">JavaScript
-      configuration variables</a>) before using these inputs.</p>
+      configuration variables</a>)</p>
 
-    <highlight lang="html" [code]="advancedUsage"></highlight>
+    <pre><code highlight [textContent]="advancedUsage"></code></pre>
 
-    <p>Use the output <code highlight>(comment)</code> to get responses for the new comments posted by users.</p>
-    <p><b>NOTE:</b> DISQUS won't work properly with the hash <b>#</b> on the router, it requires the full hashbang <b>#!</b> as mentioned in the official docs, check <a href="https://help.disqus.com/customer/portal/articles/472107-using-disqus-on-ajax-sites">DISQUS on ajax sites</a>
+    <p><b>NOTE:</b> Angular router supports two LocationStrategy providers: </p>
+    <ul>
+      <li><b>PathLocationStrategy</b>: the default "HTML5 pushState" style. (Compatible with Disqus) </li>
+      <li><b>HashLocationStrategy</b>: the "hash URL" style. (Incompatible with Disqus) </li>
+    </ul>
   </section>
 
 
