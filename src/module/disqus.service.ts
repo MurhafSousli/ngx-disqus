@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import { SHORTNAME } from './lib.module';
+import { Injectable, Inject } from '@angular/core';
 
 declare const global: any;
 
 @Injectable()
 export class DisqusService {
 
-  constructor(public shortname: string) {
+  constructor(@Inject(SHORTNAME) public shortname: string) {
   }
 
   get window() {

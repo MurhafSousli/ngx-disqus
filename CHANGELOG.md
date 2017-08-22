@@ -1,8 +1,11 @@
 # Changelog
 
+## 2.2.1
+
+ - Fix cannot resolve all parameter warning, closes #18.
+
 ## 2.2.0
 
- - Remove `@Optional` from DisqusService, closes #18.
  - feat(onReady, onPaginate) events.
  - rename `comment` output to `onNewComment`.
 
