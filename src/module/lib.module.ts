@@ -6,7 +6,7 @@ import { DisqusService } from './disqus.service';
 export function DisqusFactory(shortname: string) {
   return new DisqusService(shortname);
 }
-export const SHORTNAME = new InjectionToken<string>('shortname');
+export const SHORTNAME = new InjectionToken<string>('SHORTNAME');
 
 @NgModule({
   declarations: [DisqusComponent],
