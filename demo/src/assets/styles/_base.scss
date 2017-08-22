@@ -14,10 +14,13 @@ h1,h2,h3,h4,h5,h6, .subtitle{
 }
 .subtitle{
   text-align: center;
-  font-size: 1.4em;
+  font-size: 1.6em;
+}
+h2 {
+  font-size: 1.9em;
 }
 h3{
-  font-size: 1.1em;
+  font-size: 1.5em;
 }
 h5{
   color: #E03237;
@@ -59,7 +62,7 @@ p{
 }
 
 section {
-  margin-top: 30px;
+  margin: 70px 0;
   h2 {
     &:before {
       color: #E03237;

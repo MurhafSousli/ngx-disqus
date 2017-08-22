@@ -3,7 +3,7 @@ import {AppState} from '../app.state';
 
 @Component({
   selector: 'app-dark',
-  template: '<disqus identifier="/ngx-disqus/dark" title="Dark Theme" (comment)="display($event)"></disqus>'
+  template: '<disqus identifier="/ngx-disqus/dark" title="Dark Theme" (onNewComment)="display($event)"></disqus>'
 })
 export class DarkComponent {
 

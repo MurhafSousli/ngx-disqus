@@ -3,10 +3,10 @@ import { AppState } from '../app.state';
 
 @Component({
   selector: 'app-light',
-  template: `
-    <disqus [identifier]="identifier" [title]="title" (comment)="display($event)"></disqus>
-    <!-- <button (click)="test()">TEST</button> -->
-  `
+  template: `<disqus [identifier]="identifier" [title]="title"
+  (onNewComment)="display($event)"
+  (onReady)="ready($event)"></disqus>
+`
 })
 export class LightComponent {
 
@@ -25,8 +25,8 @@ export class LightComponent {
     console.log(`It works 😎 \n${JSON.stringify(comment)}`);
   }
 
-  // test() {
-  //   this.identifier = '/ngx-disqus/dark/';
-  //   this.title = 'TEST';
-  // }
+  ready(e) {
+    console.log('ready', e);
+  }
+
 }

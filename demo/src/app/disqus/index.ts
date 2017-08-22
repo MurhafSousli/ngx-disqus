@@ -1,1 +1,1 @@
-export * from './disqus.module';
+export * from './module/lib.module';

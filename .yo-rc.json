@@ -1,0 +1,23 @@
+{
+  "generator-ngx-library": {
+    "authorName": "Murhaf Sousli",
+    "authorEmail": "murhafsousli@gmail.com",
+    "githubUsername": "murhafsousli",
+    "projectName": "ngx-disqus",
+    "projectVersion": "2.2.0",
+    "projectDescription": "Angular Disqus Module",
+    "projectKeywords": [
+      "angular2",
+      "angular",
+      "comments",
+      "disqus"
+    ],
+    "ngPrefix": "",
+    "ngVersion": "4.0.0",
+    "ngModules": [
+      "core"
+    ],
+    "useGreenkeeper": false,
+    "useCompodoc": false
+  }
+}

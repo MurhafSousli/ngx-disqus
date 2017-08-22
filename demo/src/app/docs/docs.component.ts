@@ -6,7 +6,12 @@ import { Component } from '@angular/core';
 })
 export class DocsComponent {
 
+  installation = `
+  npm install --save ngx-disqus
+`;
+
   importing = `import { DisqusModule } from 'ngx-disqus';
+
 @NgModule({
   imports: [
     // ...
@@ -14,9 +19,16 @@ export class DocsComponent {
   ]
 })`;
 
-  usage = `<disqus [identifier]="pageId"></disqus>`;
+  usage = `@Component({
+    selector: 'any-component',
+    template: "<disqus [identifier]="pageId"></disqus>"
+  })
+  export class AnyComponent {
 
-  advancedUsage = `<disqus [identifier]="pageId" [url]="url" [category]="catId" [lang]="'en'" 
-        (comment)="onComment($event)"></disqus>`;
+    pageId = '/about';
+  }`;
+
+  advancedUsage = `<disqus [identifier]="pageId" [url]="url" [category]="catId" [lang]="'en'"
+        (onNewComment)="onComment($event)" (onReady)="onReady($event)" (onPaginate)="onPaginate($event)"></disqus>`;
 
 }
