@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { DisqusModule } from './disqus';
 import { HighlightModule } from 'ngx-highlightjs';
-// import { DisqusModule } from 'ngx-disqus';
 
 import { ROUTES } from './app-routing';
 
