@@ -14,7 +14,9 @@ Add Disqus to your app instantly!
 
 Install it with npm
 
-`npm install --save ngx-disqus`
+```bash
+$ npm install --save ngx-disqus
+```
 
 ### SystemJS
 
@@ -22,13 +24,13 @@ If you are using SystemJS, you should also adjust your configuration to point to
 
 In your systemjs config file, map needs to tell the System loader where to look for ngx-disqus:
 
-```
+```ts
 map: {
   'ngx-disqus': 'node_modules/ngx-disqus/bundles/ngx-disqus.umd.js',
 }
 ```
 
-## Basic usage:
+## Usage
 
 Import `DisqusModule` in the root module
 
@@ -41,9 +43,10 @@ import { DisqusModule } from "ngx-disqus";
   ]
 })
 ```
-The function `forRoot(shortname: string)` tells the Disqus service your forum's shortname, which is the unique identifier for your website as registered on Disqus. If undefined, the Disqus embed will not load.
 
-**Now you can add Disqus component**
+The paramter `shortname` is the unique identifier for your website as registered on Disqus, make sure it is defined in your module.
+
+Now you can add Disqus component
 
 ```ts
 @Component({
@@ -59,7 +62,7 @@ export class AnyComponent {
 Disqus component requires the `identifier` input to work properly on your app
 For example If the page URL is `localhost:4200/about` then the identifier should be `/about`.
 
-## More Options:
+## More Options
 
 See Disqus official documentation ([JavaScript configuration variables](https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables)) before using these inputs.
 
@@ -68,14 +71,15 @@ See Disqus official documentation ([JavaScript configuration variables](https://
         (onNewComment)="onComment($event)" (onReady)="onReady($event)" (onPaginate)="onPaginate($event)"></disqus>
 ```
 
-#### NOTE
+___
 
-Angular router supports two LocationStrategy providers: </p>
+### NOTE
 
-  - **PathLocationStrategy:** the default "HTML5 pushState" style. (Compatible with Disqus)
-  - **HashLocationStrategy:** the "hash URL" style. (Incompatible with Disqus)
+The HashLocationStrategy is not compatible with Disqus
 
 For more info check [DISQUS on ajax sites](https://help.disqus.com/customer/portal/articles/472107-using-disqus-on-ajax-sites)
+
+___
 
 ## Issues
 
@@ -83,8 +87,19 @@ If you identify any errors in this component, or have an idea for an improvement
 
 ## Author
 
- **Murhaf Sousli**
+**Murhaf Sousli**
 
- - [github/murhafsousli](https://github.com/MurhafSousli)
- - [twitter/murhafsousli](https://twitter.com/MurhafSousli)
+- [github/murhafsousli](https://github.com/MurhafSousli)
+- [twitter/murhafsousli](https://twitter.com/MurhafSousli)
 
+## More plugins
+
+- [ngx-sharebuttons](https://github.com/MurhafSousli/ngx-sharebuttons)
+- [ng-gallery](https://github.com/MurhafSousli/ng-gallery)
+- [ngx-progressbar](https://github.com/MurhafSousli/ngx-progressbar)
+- [ngx-scrollbar](https://github.com/MurhafSousli/ngx-scrollbar)
+- [ngx-bar-rating](https://github.com/MurhafSousli/ngx-bar-rating)
+- [ngx-disqus](https://github.com/MurhafSousli/ngx-disqus)
+- [ngx-wordpress](https://github.com/MurhafSousli/ngx-wordpress)
+- [ngx-highlightjs](https://github.com/MurhafSousli/ngx-highlightjs)
+- [ng-teximate](https://github.com/MurhafSousli/ng-teximate)
