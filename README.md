@@ -30,7 +30,7 @@ map: {
 }
 ```
 
-## Basic usage
+## Usage
 
 Import `DisqusModule` in the root module
 
@@ -91,3 +91,15 @@ If you identify any errors in this component, or have an idea for an improvement
 
 - [github/murhafsousli](https://github.com/MurhafSousli)
 - [twitter/murhafsousli](https://twitter.com/MurhafSousli)
+
+## More plugins
+
+- [ngx-sharebuttons](https://github.com/MurhafSousli/ngx-sharebuttons)
+- [ng-gallery](https://github.com/MurhafSousli/ng-gallery)
+- [ngx-progressbar](https://github.com/MurhafSousli/ngx-progressbar)
+- [ngx-scrollbar](https://github.com/MurhafSousli/ngx-scrollbar)
+- [ngx-bar-rating](https://github.com/MurhafSousli/ngx-bar-rating)
+- [ngx-disqus](https://github.com/MurhafSousli/ngx-disqus)
+- [ngx-wordpress](https://github.com/MurhafSousli/ngx-wordpress)
+- [ngx-highlightjs](https://github.com/MurhafSousli/ngx-highlightjs)
+- [ng-teximate](https://github.com/MurhafSousli/ng-teximate)
