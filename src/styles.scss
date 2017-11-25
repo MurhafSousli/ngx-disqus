@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import '~normalize.css';
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #1d496a;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.1em;
+  margin-bottom: 1.5em;
+}
+
+.badges {
+  text-align: center;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+}
+
+.cover {
+  width: 150px;
+  margin: 6em auto 3em;
+}
+
+pre {
+  margin: 2em 0;
+  border-radius: 4px;
+  display: flex;
+  height: 100%;
+  word-wrap: normal;
+  overflow-y: auto;
+  border: 1px solid lightgray;
+  code {
+    border: none;
+    display: block;
+    padding: 10px 16px !important;
+  }
+}
+
+code {
+  border-radius: 4px;
+  border: 1px solid lightgray;
+  flex: 1;
+  padding: 7px;
+  line-height: 1.8em;
+}
+
+li {
+  margin-bottom: 1em;
+}
+
+section {
+  margin-bottom: 40px;
+  h2 {
+    &:before {
+      color: #E03237;
+      content: '¶';
+      float: left;
+      margin-right: 10px;
+    }
+    &:after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 100%;
+      opacity: 0.1;
+      background-color: black;
+      margin-top: 15px;
+    }
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: #0677B7;
+  text-decoration: none;
+  transition: all ease .35s;
+  &:hover {
+    color: rgba(#0677B7, .7);
+  }
+}
+
+.note {
+  border-radius: 4px;
+  padding: 16px;
+  border: 1px dashed #E03237;
+  p { 
+    margin-bottom: 0;
+  }
+}
