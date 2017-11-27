@@ -30,6 +30,8 @@ map: {
 }
 ```
 
+Here is a [stackblitz](https://stackblitz.com/edit/ngx-disqus)
+
 ## Usage
 
 Import `DisqusModule` in the root module

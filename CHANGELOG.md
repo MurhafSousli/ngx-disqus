@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.3.4
+
+- Fix(no provider for rendered2) closes [#28](https://github.com/MurhafSousli/ngx-disqus/issues/28)
+
+## 2.3.1
+
+- Recompile with the next version of ng-packagr
+
 ## 2.3.0
 
 ### Breaking changes

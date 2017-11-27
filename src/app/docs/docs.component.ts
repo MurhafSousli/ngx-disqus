@@ -16,15 +16,15 @@ export class DocsComponent {
 })`;
 
   usage = `@Component({
-    selector: 'any-component',
-    template: \`<disqus [identifier]="pageId"></disqus>\`
-  })
-  export class AnyComponent {
+  selector: 'single-post',
+  template: \`<disqus [identifier]="pageId"></disqus>\`
+})
+export class SinglePostComponent {
+  pageId = '/post/123';
+}`;
 
-    pageId = '/about';
-  }`;
-
-  advancedUsage = `<disqus [identifier]="pageId" [url]="url" [category]="catId" [lang]="'en'"
-        (onNewComment)="onComment($event)" (onReady)="onReady($event)" (onPaginate)="onPaginate($event)"></disqus>`;
+  advancedUsage = `<disqus [identifier]="pageId" [url]="url" [category]="catId"
+        [lang]="language" (newComment)="onNewComment($event)"
+        (ready)="onReady($event)" (paginate)="onPaginate($event)"></disqus>`;
 
 }
