@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="150px" width="150px" style="text-align: center;" src="https://cdn.rawgit.com/MurhafSousli/ngx-disqus/master/assets/logo.svg">
+  <img height="150px" width="150px" style="text-align: center;" src="https://cdn.rawgit.com/MurhafSousli/ngx-disqus/55fb00f5/src/assets/logo.svg">
   <h1 align="center">Angular Disqus Module</h1>
 </p>
 
