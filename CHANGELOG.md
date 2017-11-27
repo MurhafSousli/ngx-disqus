@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.3.4
+## 2.3.5
 
 - Fix(no provider for rendered2) closes [#28](https://github.com/MurhafSousli/ngx-disqus/issues/28)
 

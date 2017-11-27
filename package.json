@@ -1,7 +1,7 @@
 {
   "name": "ngx-disqus",
   "description": "Angular Disqus Module",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "packagr": "ng-packagr -p ng-package.json"
+    "packagr": "ng-packagr -p lib/ng-package.json"
   },
   "homepage": "http://github.com/murhafsousli/ngx-disqus",
   "author": {
@@ -50,6 +50,7 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
+    "cz-conventional-changelog": "^2.1.0",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
