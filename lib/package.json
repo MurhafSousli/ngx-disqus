@@ -1,0 +1,27 @@
+{
+  "name": "ngx-disqus",
+  "version": "2.3.6",
+  "description": "Angular Disqus Module",
+  "homepage": "http://github.com/murhafsousli/ngx-disqus",
+  "author": {
+    "name": "Murhaf Sousli",
+    "url": "http://github.com/murhafsousli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/murhafsousli/ngx-disqus.git"
+  },
+  "bugs": {
+    "url": "http://github.com/murhafsousli/ngx-disqus/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "comments",
+    "disqus"
+  ],
+  "private": false,
+  "peerDependencies": {
+    "@angular/common": ">=5.0.0"
+  }
+}
