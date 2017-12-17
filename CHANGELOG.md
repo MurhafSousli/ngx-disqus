@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.7
+
+No changes, republished the library with ng-packagr@2.0.0-rc.7, fixes [#33](https://github.com/MurhafSousli/ngx-disqus/issues/33).
+
 ## 2.3.5
 
 - Fix(no provider for rendered2) closes [#28](https://github.com/MurhafSousli/ngx-disqus/issues/28)
