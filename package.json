@@ -26,7 +26,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-demo": "ng build ngx-disqus-demo --prod",
+    "build": "ng build --prod",
     "build-lib": "ng build ngx-disqus --prod",
     "link-lib": "npm link dist/ngx-disqus && npm link ngx-disqus"
   },
