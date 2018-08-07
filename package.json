@@ -26,7 +26,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build": "ng build --prod",
+    "build": "ng build --prod --base-href https://murhafsousli.github.io/ngx-disqus/",
     "build-lib": "ng build ngx-disqus --prod",
     "link-lib": "npm link dist/ngx-disqus && npm link ngx-disqus"
   },
