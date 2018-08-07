@@ -3,7 +3,6 @@ import {
   Input,
   Output,
   OnChanges,
-  OnDestroy,
   ChangeDetectionStrategy,
   Renderer2,
   ElementRef,
@@ -18,7 +17,7 @@ import { DisqusComment, DisqusReady } from './disqus.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class DisqusComponent implements OnChanges, OnDestroy {
+export class DisqusComponent implements OnChanges {
 
   /** DISQUS options */
   @Input() url: string;
@@ -106,8 +105,4 @@ export class DisqusComponent implements OnChanges, OnDestroy {
     return undefined;
   }
 
-  ngOnDestroy() {
-    this.dService.window.DISQUS = undefined;
-    this.dService.window.disqus_config = undefined;
-  }
 }
