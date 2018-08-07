@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.4.0
+
+- fix(Disqus): Duplicated disqus scripts and styles in the head tag, closes [#42](https://github.com/MurhafSousli/ngx-disqus/issues/42) in [e98d224](https://github.com/MurhafSousli/ngx-disqus/pull/43/commits/e98d224ce737830a949bbeabc1600eb8ea14dd85).
+- refactor(Disqus): Improve disqus service, adds window provider.
+- export `DisqusService` so it can be importable everywhere.
+
 ## 2.3.7
 
 No changes, republished the library with ng-packagr@2.0.0-rc.7, fixes [#33](https://github.com/MurhafSousli/ngx-disqus/issues/33).
