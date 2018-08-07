@@ -3,10 +3,10 @@ import {
   Input,
   Output,
   OnChanges,
-  ChangeDetectionStrategy,
   Renderer2,
   ElementRef,
-  EventEmitter
+  EventEmitter,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { DisqusService } from './disqus.service';
 import { DisqusComment, DisqusReady } from './disqus.model';
@@ -31,12 +31,13 @@ export class DisqusComponent implements OnChanges {
   @Output() ready = new EventEmitter<DisqusReady>(true);
   @Output() paginate = new EventEmitter<any>(true);
 
-  constructor(private renderer: Renderer2, private el: ElementRef, private dService: DisqusService) { }
+  constructor(private renderer: Renderer2, private el: ElementRef, private dService: DisqusService) {
+   }
 
   ngOnChanges() {
     /** Reset Disqus if any input changed */
 
-    if (!this.dService.window.DISQUS) {
+    if (!this.dService.DISQUS) {
       this.addDisqusScript();
     } else {
       this.reset();
@@ -47,7 +48,7 @@ export class DisqusComponent implements OnChanges {
   addDisqusScript() {
 
     /** Set DISQUS config */
-    this.dService.window.disqus_config = this.getConfig();
+    this.dService.disqus_config = this.getConfig();
 
     const disqusScript = this.renderer.createElement('script');
     disqusScript.src = `//${this.dService.shortname}.disqus.com/embed.js`;
@@ -59,7 +60,7 @@ export class DisqusComponent implements OnChanges {
 
   /** Reset DISQUS with the new config */
   reset() {
-    this.dService.window.DISQUS.reset({
+    this.dService.DISQUS.reset({
       reload: true,
       config: this.getConfig()
     });

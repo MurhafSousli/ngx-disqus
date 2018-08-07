@@ -2,10 +2,11 @@ import { NgModule, ModuleWithProviders, InjectionToken } from '@angular/core';
 import { DisqusComponent } from './disqus.component';
 import { DisqusService } from './disqus.service';
 import { SHORTNAME } from './disqus.token';
+import { WINDOW_PROVIDERS, WINDOW } from './window.service';
 
 /** Initialize Disqus with shortname */
-export function DisqusFactory(shortname: string) {
-  return new DisqusService(shortname);
+export function DisqusFactory(shortname: string, window: Window) {
+  return new DisqusService(shortname, window);
 }
 
 @NgModule({
@@ -17,12 +18,13 @@ export class DisqusModule {
     return {
       ngModule: DisqusModule,
       providers: [
+        WINDOW_PROVIDERS,
         { provide: SHORTNAME, useValue: shortname },
         {
           provide: DisqusService,
           useFactory: DisqusFactory,
-          deps: [SHORTNAME]
-        }
+          deps: [SHORTNAME, WINDOW]
+        },
       ]
     };
   }

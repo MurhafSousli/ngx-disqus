@@ -65,7 +65,7 @@ section {
   margin-bottom: 40px;
   h2 {
     &:before {
-      color: #E03237;
+      color: #e03237;
       content: '¶';
       float: left;
       margin-right: 10px;
@@ -87,19 +87,20 @@ img {
 }
 
 a {
-  color: #0677B7;
+  color: #0677b7;
   text-decoration: none;
-  transition: all ease .35s;
+  transition: all ease 0.35s;
+  margin: 0.2em;
   &:hover {
-    color: rgba(#0677B7, .7);
+    color: rgba(#0677b7, 0.7);
   }
 }
 
 .note {
   border-radius: 4px;
   padding: 16px;
-  border: 1px dashed #E03237;
-  p { 
+  border: 1px dashed #e03237;
+  p {
     margin-bottom: 0;
   }
 }
