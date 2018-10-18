@@ -69,8 +69,8 @@ For example If the page URL is `localhost:4200/about` then the identifier should
 See Disqus official documentation ([JavaScript configuration variables](https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables)) before using these inputs.
 
 ```ts
-<disqus [identifier]="pageId" [url]="url" [category]="catId" [lang]="'en'"
-        (onNewComment)="onComment($event)" (onReady)="onReady($event)" (onPaginate)="onPaginate($event)"></disqus>
+<disqus [identifier]="pageId" [url]="url" [category]="catId" [language]="'en'"
+        (newComment)="onComment($event)" (ready)="onReady($event)" (paginate)="onPaginate($event)"></disqus>
 ```
 
 ___
