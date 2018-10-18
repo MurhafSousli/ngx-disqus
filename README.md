@@ -8,6 +8,7 @@ Add Disqus to your app instantly!
 [![npm](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://murhafsousli.github.io/ngx-disqus/)
 [![npm](https://img.shields.io/npm/v/ngx-disqus.svg)](https://www.npmjs.com/package/ngx-disqus)
 [![Build Status](https://travis-ci.org/MurhafSousli/ngx-disqus.svg)](https://travis-ci.org/MurhafSousli/ngx-disqus)
+[![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/ngx-disqus.svg)](https://bundlephobia.com/result?p=ngx-disqus@2.4.0)
 [![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](/LICENSE)
 
 ## Installation
@@ -69,8 +70,8 @@ For example If the page URL is `localhost:4200/about` then the identifier should
 See Disqus official documentation ([JavaScript configuration variables](https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables)) before using these inputs.
 
 ```ts
-<disqus [identifier]="pageId" [url]="url" [category]="catId" [lang]="'en'"
-        (onNewComment)="onComment($event)" (onReady)="onReady($event)" (onPaginate)="onPaginate($event)"></disqus>
+<disqus [identifier]="pageId" [url]="url" [category]="catId" [language]="'en'"
+        (newComment)="onComment($event)" (ready)="onReady($event)" (paginate)="onPaginate($event)"></disqus>
 ```
 
 ___

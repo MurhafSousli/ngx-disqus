@@ -24,7 +24,7 @@ export class SinglePostComponent {
 }`;
 
   advancedUsage = `<disqus [identifier]="pageId" [url]="url" [category]="catId"
-        [lang]="language" (newComment)="onNewComment($event)"
+        [language]="language" (newComment)="onNewComment($event)"
         (ready)="onReady($event)" (paginate)="onPaginate($event)"></disqus>`;
 
 }
