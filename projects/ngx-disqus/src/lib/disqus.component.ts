@@ -66,7 +66,7 @@ export class DisqusComponent implements OnChanges {
     });
   }
 
-  /** Create DISQUS config from inputs */
+  /** Create DISQUS config from the inputs */
   getConfig() {
     const self = this;
     return function () {
@@ -99,7 +99,7 @@ export class DisqusComponent implements OnChanges {
       if (r.test(url)) {
         return url;
       } else {
-        console.warn('[Disqus]: Invalid URL, return undefined');
+        console.warn('[Disqus]: Invalid URL');
       }
     }
     /** DISQUS will fallback to "Window.location.href" when URL is undefined */
