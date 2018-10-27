@@ -21,7 +21,7 @@
     "url": "http://github.com/murhafsousli/ngx-disqus/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^5.0.0",
-    "@angular/core": "^5.0.0"
+    "@angular/common": ">=5.0.0",
+    "@angular/core": ">=5.0.0"
   }
 }
