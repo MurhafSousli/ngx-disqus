@@ -1,7 +1,7 @@
 {
   "name": "ngx-disqus",
   "description": "Angular Disqus Module",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "homepage": "http://github.com/murhafsousli/ngx-disqus",
   "author": {
     "name": "Murhaf Sousli",
@@ -21,7 +21,7 @@
     "url": "http://github.com/murhafsousli/ngx-disqus/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^5.0.0",
-    "@angular/core": "^5.0.0"
+    "@angular/common": ">=5.0.0",
+    "@angular/core": ">=5.0.0"
   }
 }

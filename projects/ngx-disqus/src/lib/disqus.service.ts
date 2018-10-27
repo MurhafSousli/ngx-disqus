@@ -2,7 +2,9 @@ import { Injectable, Inject } from '@angular/core';
 import { SHORTNAME } from './disqus.token';
 import { WINDOW } from './window.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DisqusService {
 
   get DISQUS(): any {
