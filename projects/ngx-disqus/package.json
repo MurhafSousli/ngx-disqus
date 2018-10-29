@@ -1,7 +1,7 @@
 {
   "name": "ngx-disqus",
   "description": "Angular Disqus Module",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "homepage": "http://github.com/murhafsousli/ngx-disqus",
   "author": {
     "name": "Murhaf Sousli",
