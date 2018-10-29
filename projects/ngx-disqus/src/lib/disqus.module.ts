@@ -1,7 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { DisqusComponent } from './disqus.component';
 import { SHORTNAME } from './disqus.token';
-import { WINDOW_PROVIDERS } from './window.service';
 
 @NgModule({
   declarations: [DisqusComponent],
@@ -12,7 +11,6 @@ export class DisqusModule {
     return {
       ngModule: DisqusModule,
       providers: [
-        WINDOW_PROVIDERS,
         { provide: SHORTNAME, useValue: shortname }
       ]
     };
