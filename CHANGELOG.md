@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.4.2
+
+- refactor(DisqusService): Remove Window provider in favor of document.defaultView, in [f427ea9](https://github.com/MurhafSousli/ngx-disqus/pull/52/commits/f427ea99e455fd21cee711242d3a6c12e6c7933e).
+
 ## 2.4.1
 
 - fix peerDependencies for Angular > 5, closes [#50](https://github.com/MurhafSousli/ngx-disqus/issues/50) in [1019a0b](https://github.com/MurhafSousli/ngx-disqus/pull/51/commits/1019a0bf1346fee553e7e791328cf43fdf97d686).
