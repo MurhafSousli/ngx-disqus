@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.4.3
+
+- enhance(Disqus): Ability to provide disqus shortname value using the `DISQUS_SHORTNAME` token.
+
 ## 2.4.2
 
 - refactor(DisqusService): Remove Window provider in favor of document.defaultView, in [f427ea9](https://github.com/MurhafSousli/ngx-disqus/pull/52/commits/f427ea99e455fd21cee711242d3a6c12e6c7933e).
