@@ -6,6 +6,16 @@ import { DisqusModule } from 'ngx-disqus';
 import { AppComponent } from './app.component';
 import { DocsComponent } from './docs/docs.component';
 
+import xml from 'highlight.js/lib/languages/xml';
+import typescript from 'highlight.js/lib/languages/typescript';
+
+export function languages() {
+  return [
+    {name: 'xml', func: xml},
+    {name: 'typescript', func: typescript },
+  ]
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +25,7 @@ import { DocsComponent } from './docs/docs.component';
     BrowserModule,
     CommonModule,
     DisqusModule.forRoot('ngx'),
-    HighlightModule.forRoot({ theme: 'vs' })
+    HighlightModule.forRoot({ languages })
   ],
   bootstrap: [AppComponent]
 })

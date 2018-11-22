@@ -23,6 +23,24 @@ export class SinglePostComponent {
   pageId = '/post/123';
 }`;
 
+  shortname = `import { DISQUS_SHORTNAME } from 'ngx-disqus';
+
+@NgModule({
+  providers: [
+    { provide: DISQUS_SHORTNAME, useValue: 'shortname_value' }
+  ]
+})
+export class AppModule { }`;
+
+  lazy = `import { DisqusModule } from 'ngx-disqus';
+
+@NgModule({
+  imports: [
+    DisqusModule
+  ]
+})
+export class FeatureModule { }`;
+
   advancedUsage = `<disqus [identifier]="pageId" [url]="url" [category]="catId"
         [language]="language" (newComment)="onNewComment($event)"
         (ready)="onReady($event)" (paginate)="onPaginate($event)"></disqus>`;
