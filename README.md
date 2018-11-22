@@ -13,25 +13,17 @@ Add Disqus to your app instantly!
 
 ## Installation
 
-Install it with npm
+**NPM**
 
 ```bash
-$ npm install --save ngx-disqus
+$ npm install -S ngx-disqus
 ```
 
-### SystemJS
+**YARN**
 
-If you are using SystemJS, you should also adjust your configuration to point to the UMD bundle.
-
-In your systemjs config file, map needs to tell the System loader where to look for ngx-disqus:
-
-```ts
-map: {
-  'ngx-disqus': 'node_modules/ngx-disqus/bundles/ngx-disqus.umd.js',
-}
+```bash
+$ yarn add ngx-disqus
 ```
-
-Here is a [stackblitz](https://stackblitz.com/edit/ngx-disqus)
 
 ## Usage
 
@@ -62,8 +54,38 @@ export class AnyComponent {
 }
 ```
 
-Disqus component requires the `identifier` input to work properly on your app
-For example If the page URL is `localhost:4200/about` then the identifier should be `/about`.
+- Disqus component requires the `identifier` input to work properly on your app
+- For examplev if the page URL is `localhost:4200/about` then the identifier should be `/about`.
+
+Here is a [stackblitz](https://stackblitz.com/edit/ngx-disqus)
+
+### Lazy load `DisqusModule`
+
+If you wish to lazy load this library, set the shortname value in the root module using `DISQUS_SHORTNAME` token.
+
+```ts
+import { DISQUS_SHORTNAME } from 'ngx-disqus';
+
+@NgModule({
+  providers: [
+    { provide: DISQUS_SHORTNAME, useValue: 'shortname_value' }
+  ]
+})
+export class AppModule { }
+```
+
+And just import `DisqusModule` in the feature module
+
+```ts
+import { DisqusModule } from 'ngx-disqus';
+
+@NgModule({
+  imports: [
+    DisqusModule
+  ]
+})
+export class FeatureModule { }
+```
 
 ## More Options
 
@@ -86,7 +108,7 @@ ___
 
 ## Issues
 
-If you identify any errors in this component, or have an idea for an improvement, please open an [issue](https://github.com/MurhafSousli/ngx-disqus/issues). I am excited to see what the community thinks of this project, and I would love your input!
+If you identify any errors in this component, or have an idea for an improvement, please open an [issue](https://github.com/MurhafSousli/ngx-disqus/issues)!
 
 ## Author
 
@@ -105,4 +127,4 @@ If you identify any errors in this component, or have an idea for an improvement
 - [ngx-disqus](https://github.com/MurhafSousli/ngx-disqus)
 - [ngx-wordpress](https://github.com/MurhafSousli/ngx-wordpress)
 - [ngx-highlightjs](https://github.com/MurhafSousli/ngx-highlightjs)
-- [ng-teximate](https://github.com/MurhafSousli/ng-teximate)
+- [ngx-teximate](https://github.com/MurhafSousli/ngx-teximate)

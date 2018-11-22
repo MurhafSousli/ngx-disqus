@@ -8,30 +8,22 @@ Add Disqus to your app instantly!
 [![npm](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://murhafsousli.github.io/ngx-disqus/)
 [![npm](https://img.shields.io/npm/v/ngx-disqus.svg)](https://www.npmjs.com/package/ngx-disqus)
 [![Build Status](https://travis-ci.org/MurhafSousli/ngx-disqus.svg)](https://travis-ci.org/MurhafSousli/ngx-disqus)
-[![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/ngx-disqus.svg)](https://bundlephobia.com/result?p=ngx-disqus@2.4.0)
+[![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/ngx-disqus.svg)](https://bundlephobia.com/result?p=ngx-disqus)
 [![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](/LICENSE)
 
 ## Installation
 
-Install it with npm
+**NPM**
 
 ```bash
-$ npm install --save ngx-disqus
+$ npm install -S ngx-disqus
 ```
 
-### SystemJS
+**YARN**
 
-If you are using SystemJS, you should also adjust your configuration to point to the UMD bundle.
-
-In your systemjs config file, map needs to tell the System loader where to look for ngx-disqus:
-
-```ts
-map: {
-  'ngx-disqus': 'node_modules/ngx-disqus/bundles/ngx-disqus.umd.js',
-}
+```bash
+$ yarn add ngx-disqus
 ```
-
-Here is a [stackblitz](https://stackblitz.com/edit/ngx-disqus)
 
 ## Usage
 
@@ -62,8 +54,38 @@ export class AnyComponent {
 }
 ```
 
-Disqus component requires the `identifier` input to work properly on your app
-For example If the page URL is `localhost:4200/about` then the identifier should be `/about`.
+- Disqus component requires the `identifier` input to work properly on your app
+- For examplev if the page URL is `localhost:4200/about` then the identifier should be `/about`.
+
+Here is a [stackblitz](https://stackblitz.com/edit/ngx-disqus)
+
+### Lazy load `DisqusModule`
+
+If you wish to lazy load this library, set the shortname value in the root module using `DISQUS_SHORTNAME` token.
+
+```ts
+import { DISQUS_SHORTNAME } from 'ngx-disqus';
+
+@NgModule({
+  providers: [
+    { provide: DISQUS_SHORTNAME, useValue: 'shortname_value' }
+  ]
+})
+export class AppModule { }
+```
+
+And just import `DisqusModule` in the feature module
+
+```ts
+import { DisqusModule } from 'ngx-disqus';
+
+@NgModule({
+  imports: [
+    DisqusModule
+  ]
+})
+export class FeatureModule { }
+```
 
 ## More Options
 
@@ -98,11 +120,11 @@ If you identify any errors in this component, or have an idea for an improvement
 ## More plugins
 
 - [ngx-sharebuttons](https://github.com/MurhafSousli/ngx-sharebuttons)
-- [ng-gallery](https://github.com/MurhafSousli/ng-gallery)
+- [ngx-gallery](https://github.com/MurhafSousli/ngx-gallery)
 - [ngx-progressbar](https://github.com/MurhafSousli/ngx-progressbar)
 - [ngx-scrollbar](https://github.com/MurhafSousli/ngx-scrollbar)
 - [ngx-bar-rating](https://github.com/MurhafSousli/ngx-bar-rating)
 - [ngx-disqus](https://github.com/MurhafSousli/ngx-disqus)
 - [ngx-wordpress](https://github.com/MurhafSousli/ngx-wordpress)
 - [ngx-highlightjs](https://github.com/MurhafSousli/ngx-highlightjs)
-- [ng-teximate](https://github.com/MurhafSousli/ng-teximate)
+- [ngx-teximate](https://github.com/MurhafSousli/ngx-teximate)
