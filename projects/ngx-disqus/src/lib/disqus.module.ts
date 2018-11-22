@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { DisqusComponent } from './disqus.component';
-import { SHORTNAME } from './disqus.token';
+import { DISQUS_SHORTNAME } from './disqus.model';
 
 @NgModule({
   declarations: [DisqusComponent],
@@ -11,7 +11,7 @@ export class DisqusModule {
     return {
       ngModule: DisqusModule,
       providers: [
-        { provide: SHORTNAME, useValue: shortname }
+        { provide: DISQUS_SHORTNAME, useValue: shortname }
       ]
     };
   }
