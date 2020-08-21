@@ -7,7 +7,7 @@ import { DISQUS_SHORTNAME } from './disqus.model';
   exports: [DisqusComponent]
 })
 export class DisqusModule {
-  static forRoot(shortname: string): ModuleWithProviders {
+  static forRoot(shortname: string): ModuleWithProviders<DisqusModule> {
     return {
       ngModule: DisqusModule,
       providers: [
