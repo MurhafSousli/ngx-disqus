@@ -147,9 +147,9 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/ngx-disqus/ng-package.prod.json"
-            ,              "tsConfig": "projects/ngx-disqus/tsconfig.lib.prod.json"
-}
+              "project": "projects/ngx-disqus/ng-package.prod.json",
+              "tsConfig": "projects/ngx-disqus/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
@@ -175,5 +175,8 @@
       }
     }
   },
-  "defaultProject": "demo"
+  "defaultProject": "demo",
+  "cli": {
+    "analytics": false
+  }
 }
