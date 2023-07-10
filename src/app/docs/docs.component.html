@@ -6,14 +6,10 @@
     <div class="badges">
       <!--GITHUB STAR-->
       <iframe src="https://ghbtns.com/github-btn.html?user=murhafsousli&repo=ngx-disqus&type=star&count=true&size=small" frameborder="0"
-        scrolling="0" width="80px" height="20px"></iframe>
+              scrolling="0" width="90px" height="20px"></iframe>
       <!--NPM-->
       <a href="https://www.npmjs.com/package/ngx-disqus">
         <img data-canonical-src="https://www.npmjs.com/package/ngx-disqus" src="https://img.shields.io/npm/v/ngx-disqus.svg?maxAge=2592000?style=plastic">
-      </a>
-      <!--BUILD-->
-      <a href="https://www.github.com/murhafsousli/ngx-disqus">
-        <img data-canonical-src="https://travis-ci.org/MurhafSousli/ngx-disqus" src="https://travis-ci.org/MurhafSousli/ngx-disqus.svg?branch=master">
       </a>
       <!--SIZE-->
       <a href="https://bundlephobia.com/result?p=ngx-disqus">
@@ -23,7 +19,7 @@
       <!--LICENSE-->
       <a href="https://github.com/MurhafSousli/ngx-disqus/blob/master/LICENSE">
         <img src="https://camo.githubusercontent.com/25d313ccfafb08618b31899a22af11a5b8a79aad/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f6c2f657870726573732e7376673f6d61784167653d32353932303030"
-          alt="npm" data-canonical-src="https://img.shields.io/npm/l/express.svg?maxAge=2592000" style="max-width:100%;">
+             alt="npm" data-canonical-src="https://img.shields.io/npm/l/express.svg?maxAge=2592000" style="max-width:100%;">
       </a>
     </div>
   </section>
@@ -36,21 +32,10 @@
 
   <section>
     <h2>Usage</h2>
-    <p>Add <code class="hljs" style="display: inline; margin: 0 3px">DisqusModule</code> in the root module</p>
-    <pre><code [highlight]="importing"></code></pre>
-    <pre><code [highlight]="usage"></code></pre>
-  </section>
-  
-  <section>
-    <h2>Lazy loading</h2>
-    If you wish to lazy load this library, you can set the shortname in the root module
-
+    <p>Set the Disqus shortname using <code>DISQUS_SHORTNAME</code> injection token</p>
     <pre><code [highlight]="shortname"></code></pre>
-    
-    And just import <code class="hljs" style="display: inline; margin: 0 3px">DisqusModule</code> in the feature module
-
-    <pre><code [highlight]="lazy"></code></pre>
-
+    <p>Set the identifier for the disqus component</p>
+    <pre><code [highlight]="usage"></code></pre>
   </section>
 
   <section>
@@ -61,10 +46,10 @@
     <pre><code [highlight]="advancedUsage"></code></pre>
 
     <div class="note">
-      <b style="color: crimson">NOTE:</b> 
+      <b style="color: crimson">NOTE:</b>
       <p>The <b>HashLocationStrategy</b> is not compatible with Disqus</p>
     </div>
-    </section>
+  </section>
 
 
   <section>
