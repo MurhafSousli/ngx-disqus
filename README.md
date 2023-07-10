@@ -1,6 +1,6 @@
 <p align="center">
   <img height="150px" width="150px" style="text-align: center;" src="https://cdn.rawgit.com/MurhafSousli/ngx-disqus/55fb00f5/src/assets/logo.svg">
-  <h1 align="center">Angular Disqus Module</h1>
+  <h1 align="center">Angular Disqus Component</h1>
 </p>
 
 Add Disqus to your app instantly!
@@ -14,7 +14,7 @@ Add Disqus to your app instantly!
 ## Installation
 
 ```bash
-npm install ngx-disqus
+npm i ngx-disqus
 ```
 
 ## Usage
