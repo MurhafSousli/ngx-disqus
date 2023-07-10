@@ -13,7 +13,7 @@
     "sourceMap": true,
     "paths": {
       "ngx-disqus": [
-        "dist/ngx-disqus"
+        "projects/ngx-disqus/src/public-api"
       ]
     },
     "declaration": false,
