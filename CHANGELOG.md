@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.0
+
+- Upgrade to Angular 16
+
 ## 2.4.3
 
 - enhance(Disqus): Ability to provide disqus shortname value using the `DISQUS_SHORTNAME` token.
@@ -79,7 +83,6 @@ No changes, republished the library with ng-packagr@2.0.0-rc.7, fixes [#33](http
 - (feat) @Output() `comment` callback (output)
 - **[removeOnDestroy]** input is deprecated, it will remove disqus script on destroy by default.
  
-
 ## 1.0.4
 - Improve component code
 - Add URL validator
