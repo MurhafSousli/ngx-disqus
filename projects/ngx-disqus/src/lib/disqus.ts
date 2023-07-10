@@ -1,23 +1,36 @@
 import {
   Component,
+  Inject,
   Input,
   Output,
-  OnChanges,
-  Renderer2,
-  ElementRef,
   EventEmitter,
+  OnChanges,
+  ElementRef,
+  Renderer2,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { DisqusService } from './disqus.service';
-import { DisqusComment, DisqusReady } from './disqus.model';
+import { DOCUMENT } from '@angular/common';
+import { DISQUS_SHORTNAME, DisqusComment, DisqusReady } from './disqus.model';
 
 @Component({
+  standalone: true,
   selector: 'disqus',
   template: '<div id="disqus_thread"></div>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+export class Disqus implements OnChanges {
 
-export class DisqusComponent implements OnChanges {
+  get DISQUS(): any {
+    return this.document.defaultView['DISQUS'];
+  }
+
+  get disqusConfig(): any {
+    return this.document.defaultView['disqus_config'];
+  }
+
+  set disqusConfig(config: any) {
+    this.document.defaultView['disqus_config'] = config;
+  }
 
   /** DISQUS options */
   @Input() url: string;
@@ -31,13 +44,15 @@ export class DisqusComponent implements OnChanges {
   @Output() ready = new EventEmitter<DisqusReady>(true);
   @Output() paginate = new EventEmitter<any>(true);
 
-  constructor(private renderer: Renderer2, private el: ElementRef, private dService: DisqusService) {
-   }
+  constructor(@Inject(DISQUS_SHORTNAME) private shortname: string,
+              @Inject(DOCUMENT) private document: Document,
+              private renderer: Renderer2,
+              private el: ElementRef<HTMLElement>) {
+  }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     /** Reset Disqus if any input changed */
-
-    if (!this.dService.DISQUS) {
+    if (!this.DISQUS) {
       this.addDisqusScript();
     } else {
       this.reset();
@@ -45,13 +60,12 @@ export class DisqusComponent implements OnChanges {
   }
 
   /** Add DISQUS script */
-  addDisqusScript() {
-
+  addDisqusScript(): void {
     /** Set DISQUS config */
-    this.dService.disqus_config = this.getConfig();
+    this.disqusConfig = this.getConfig();
 
     const disqusScript = this.renderer.createElement('script');
-    disqusScript.src = `//${this.dService.shortname}.disqus.com/embed.js`;
+    disqusScript.src = `//${this.shortname}.disqus.com/embed.js`;
     disqusScript.async = true;
     disqusScript.type = 'text/javascript';
     this.renderer.setAttribute(disqusScript, 'data-timestamp', new Date().getTime().toString());
@@ -59,17 +73,17 @@ export class DisqusComponent implements OnChanges {
   }
 
   /** Reset DISQUS with the new config */
-  reset() {
-    this.dService.DISQUS.reset({
+  reset(): void {
+    this.DISQUS.reset({
       reload: true,
       config: this.getConfig()
     });
   }
 
   /** Create DISQUS config from the inputs */
-  getConfig() {
+  getConfig(): () => void {
     const self = this;
-    return function () {
+    return function (): void {
       this.page.identifier = self.identifier;
       this.page.url = self.validateUrl(self.url);
       this.page.title = self.title;
@@ -77,21 +91,21 @@ export class DisqusComponent implements OnChanges {
       this.language = self.language;
 
       /* Available callbacks are afterRender, onInit, onNewComment, onPaginate, onReady, preData, preInit, preReset */
-      this.callbacks.onNewComment = [(e) => {
+      this.callbacks.onNewComment = [(e: any) => {
         self.newComment.emit(e);
       }];
 
-      this.callbacks.onReady = [(e) => {
+      this.callbacks.onReady = [(e: any) => {
         self.ready.emit(e);
       }];
 
-      this.callbacks.onPaginate = [(e) => {
+      this.callbacks.onPaginate = [(e: any) => {
         self.paginate.emit(e);
       }];
     };
   }
 
-  validateUrl(url: string) {
+  validateUrl(url: string): string | undefined {
     /** Validate URL input */
     if (url) {
       const r = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
@@ -105,5 +119,4 @@ export class DisqusComponent implements OnChanges {
     /** DISQUS will fallback to "Window.location.href" when URL is undefined */
     return undefined;
   }
-
 }

@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Highlight } from 'ngx-highlightjs';
 
 @Component({
   selector: 'app-docs',
-  templateUrl: './docs.component.html'
+  standalone: true,
+  imports: [CommonModule, Highlight],
+  templateUrl: './docs.component.html',
 })
 export class DocsComponent {
 
-  importing = `import { DisqusModule } from 'ngx-disqus';
+  readonly usage: string = `import { DisqusModule } from 'ngx-disqus';
 
-@NgModule({
-  imports: [
-    // ...
-    DisqusModule.forRoot('disqus_shortname')
-  ]
-})`;
-
-  usage = `@Component({
+@Component({
+  standalone: true,
+  imports: [DisqusModule],
   selector: 'single-post',
   template: \`<disqus [identifier]="pageId"></disqus>\`
 })
@@ -23,26 +22,18 @@ export class SinglePostComponent {
   pageId = '/post/123';
 }`;
 
-  shortname = `import { DISQUS_SHORTNAME } from 'ngx-disqus';
+  readonly shortname: string = `import { DISQUS_SHORTNAME } from 'ngx-disqus';
 
-@NgModule({
+export const appConfig: ApplicationConfig = {
   providers: [
-    { provide: DISQUS_SHORTNAME, useValue: 'shortname_value' }
+    {
+      provide: DISQUS_SHORTNAME,
+      useValue: 'disqus_shortname'
+    },
   ]
-})
-export class AppModule { }`;
+}`;
 
-  lazy = `import { DisqusModule } from 'ngx-disqus';
-
-@NgModule({
-  imports: [
-    DisqusModule
-  ]
-})
-export class FeatureModule { }`;
-
-  advancedUsage = `<disqus [identifier]="pageId" [url]="url" [category]="catId"
+  readonly advancedUsage: string = `<disqus [identifier]="pageId" [url]="url" [category]="catId"
         [language]="language" (newComment)="onNewComment($event)"
         (ready)="onReady($event)" (paginate)="onPaginate($event)"></disqus>`;
-
 }

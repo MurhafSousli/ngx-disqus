@@ -1,18 +1,9 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { DisqusComponent } from './disqus.component';
-import { DISQUS_SHORTNAME } from './disqus.model';
+import { NgModule } from '@angular/core';
+import { Disqus } from './disqus';
 
 @NgModule({
-  declarations: [DisqusComponent],
-  exports: [DisqusComponent]
+  imports: [Disqus],
+  exports: [Disqus]
 })
 export class DisqusModule {
-  static forRoot(shortname: string): ModuleWithProviders {
-    return {
-      ngModule: DisqusModule,
-      providers: [
-        { provide: DISQUS_SHORTNAME, useValue: shortname }
-      ]
-    };
-  }
 }
