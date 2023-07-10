@@ -26,7 +26,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build": "ng build --prod --base-href https://murhafsousli.github.io/ngx-disqus/",
+    "build": "ng build --configuration production --base-href https://murhafsousli.github.io/ngx-disqus/",
     "build-lib": "ng build ngx-disqus"
   },
   "dependencies": {
@@ -38,7 +38,7 @@
     "@angular/platform-browser": "^16.1.4",
     "@angular/platform-browser-dynamic": "^16.1.4",
     "@angular/router": "^16.1.4",
-    "highlightjs": "^9.16.2",
+    "highlight.js": "^11.8.0",
     "ngx-highlightjs": "^10.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

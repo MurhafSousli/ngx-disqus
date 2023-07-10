@@ -19,7 +19,7 @@ export class DocsComponent {
   template: \`<disqus [identifier]="pageId"></disqus>\`
 })
 export class SinglePostComponent {
-  pageId = '/post/123';
+  pageId: string = '/post/123';
 }`;
 
   readonly shortname: string = `import { DISQUS_SHORTNAME } from 'ngx-disqus';
