@@ -13,16 +13,8 @@ Add Disqus to your app instantly!
 
 ## Installation
 
-**NPM**
-
 ```bash
-$ npm install -S ngx-disqus
-```
-
-**YARN**
-
-```bash
-$ yarn add ngx-disqus
+npm install ngx-disqus
 ```
 
 ## Usage
