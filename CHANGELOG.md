@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.0.0
+## 3.0.1
 
 - Upgrade to Angular 16
 
