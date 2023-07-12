@@ -9,8 +9,8 @@ import {
   Renderer2,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { DISQUS_SHORTNAME, DisqusComment, DisqusReady } from './disqus.model';
+import { DisqusComment, DisqusReady } from './disqus.model';
+import { DisqusService } from './disqus.service';
 
 @Component({
   standalone: true,
@@ -19,18 +19,6 @@ import { DISQUS_SHORTNAME, DisqusComment, DisqusReady } from './disqus.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Disqus implements OnChanges {
-
-  get DISQUS(): any {
-    return this.document.defaultView['DISQUS'];
-  }
-
-  get disqusConfig(): any {
-    return this.document.defaultView['disqus_config'];
-  }
-
-  set disqusConfig(config: any) {
-    this.document.defaultView['disqus_config'] = config;
-  }
 
   /** DISQUS options */
   @Input() url: string;
@@ -44,15 +32,14 @@ export class Disqus implements OnChanges {
   @Output() ready = new EventEmitter<DisqusReady>(true);
   @Output() paginate = new EventEmitter<any>(true);
 
-  constructor(@Inject(DISQUS_SHORTNAME) private shortname: string,
-              @Inject(DOCUMENT) private document: Document,
+  constructor(private disqus: DisqusService,
               private renderer: Renderer2,
               private el: ElementRef<HTMLElement>) {
   }
 
   ngOnChanges(): void {
     /** Reset Disqus if any input changed */
-    if (!this.DISQUS) {
+    if (!this.disqus.DISQUS) {
       this.addDisqusScript();
     } else {
       this.reset();
@@ -62,10 +49,10 @@ export class Disqus implements OnChanges {
   /** Add DISQUS script */
   addDisqusScript(): void {
     /** Set DISQUS config */
-    this.disqusConfig = this.getConfig();
+    this.disqus.config = this.getConfig();
 
     const disqusScript = this.renderer.createElement('script');
-    disqusScript.src = `//${this.shortname}.disqus.com/embed.js`;
+    disqusScript.src = `//${ this.disqus.shortname }.disqus.com/embed.js`;
     disqusScript.async = true;
     disqusScript.type = 'text/javascript';
     this.renderer.setAttribute(disqusScript, 'data-timestamp', new Date().getTime().toString());
@@ -74,7 +61,7 @@ export class Disqus implements OnChanges {
 
   /** Reset DISQUS with the new config */
   reset(): void {
-    this.DISQUS.reset({
+    this.disqus.DISQUS.reset({
       reload: true,
       config: this.getConfig()
     });
